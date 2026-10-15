@@ -1,6 +1,6 @@
-# Leaf Client Website Clone
+# Axquen Client Website Clone
 
-A complete, pixel-perfect clone of [Leaf Client](https://leafclient.com/) with all interactive features, screenshots, responsive styles, 3D cosmetics viewer, and assets.
+A complete, pixel-perfect clone of [Axquen Client](https://github.com/choasworths/client/) with all interactive features, screenshots, responsive styles, 3D cosmetics viewer, and assets.
 
 ## Deployment on Netlify
 

@@ -2,23 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script>(function(){var n=navigator,r=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches),l=r||(typeof n.deviceMemory==='number'&&n.deviceMemory<=4)||(typeof n.hardwareConcurrency==='number'&&n.hardwareConcurrency<=4)||!!(n.connection&&n.connection.saveData);window.lcLiteMode=l;if(l){document.documentElement.classList.add('lite');}})();</script>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; connect-src 'self' https://api.leafclient.com https://cdn.leafclient.com https://flagcdn.com https://starlightskins.lunareclipse.studio; frame-src 'self' https://*.tebex.io https://stats.uptimerobot.com; form-action 'self' https://*.tebex.io; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+    <script>(function(){var n=navigator,r=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches),l=r||(typeof n.deviceMemory==='number'&&n.deviceMemory<=4)||(typeof n.hardwareConcurrency==='number'&&n.hardwareConcurrency<=4)||!!(n.connection&&n.connection.saveData);window.axqLiteMode=l;if(l){document.documentElement.classList.add('lite');}})();</script>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; connect-src 'self' https://api.chaosworths.com https://cdn.choasworths.github.io/client https://flagcdn.com https://starlightskins.lunareclipse.studio; frame-src 'self' https://*.tebex.io https://stats.uptimerobot.com; form-action 'self' https://*.tebex.io; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(self 'https://*.tebex.io'), interest-cohort=(), browsing-topics=()">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaf Client Docs</title>
-    <meta name="description" content="Complete Leaf Client documentation. Installation guide, first-time setup, all 35+ mods explained, HUD editor tutorial, cosmetics guide, server compatibility, and troubleshooting.">
-    <link rel="canonical" href="https://leafclient.com/docs">
+    <title>Axquen Client Docs</title>
+    <meta name="description" content="Complete Axquen Client documentation. Installation guide, first-time setup, all 35+ mods explained, HUD editor tutorial, cosmetics guide, server compatibility, and troubleshooting.">
+    <link rel="canonical" href="https://github.com/choasworths/client/docs">
     <link rel="icon" href="../assets/favicon.png">
     <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/sora-latin.woff2" crossorigin>
     <link rel="stylesheet" href="../style.css">
     <meta name="theme-color" content="#080b0c">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://leafclient.com/docs">
-    <meta property="og:title" content="Leaf Client Documentation">
-    <meta property="og:description" content="Complete documentation for Leaf Client. Installation, mods reference, HUD editor, cosmetics guide, and troubleshooting.">
-    <meta property="og:image" content="https://leafclient.com/assets/logo.png">
+    <meta property="og:url" content="https://github.com/choasworths/client/docs">
+    <meta property="og:title" content="Axquen Client Documentation">
+    <meta property="og:description" content="Complete documentation for Axquen Client. Installation, mods reference, HUD editor, cosmetics guide, and troubleshooting.">
+    <meta property="og:image" content="https://github.com/choasworths/client/assets/logo.png">
 </head>
 <body>
     <div class="ambient-glow is-quiet" aria-hidden="true"></div>
@@ -26,9 +26,9 @@
 
     <header class="header">
         <nav class="nav container" aria-label="Main navigation">
-            <a href="/" class="brand" aria-label="Leaf Client home">
+            <a href="/" class="brand" aria-label="Axquen Client home">
                 <img src="../assets/logo.webp" width="34" height="34" alt="">
-                <span>Leaf <span class="brand-light">Client</span></span>
+                <span>Axquen <span class="brand-light">Client</span></span>
             </a>
             <div class="nav-links">
                 <a href="/#features">Features</a>
@@ -51,8 +51,8 @@
                                 <div><strong id="nav-dropdown-name"></strong><span>Signed in</span></div>
                             </div>
                             <div class="account-points" id="nav-lp-display">
-                                <img class="lb-leaf-ic" src="../assets/leaf_points.svg" alt="">
-                                <span><strong id="nav-lp-count">0</strong> Leaf Points</span>
+                                <img class="lb-axquen-ic" src="../assets/axquen_points.svg" alt="">
+                                <span><strong id="nav-lp-count">0</strong> Axquen Points</span>
                             </div>
                             <div class="account-divider"></div>
                             <button type="button" class="account-item danger" id="nav-logout-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>Sign out</button>
@@ -81,8 +81,8 @@
     <main id="main">
         <section class="page-hero container">
             <span class="section-eyebrow">Documentation</span>
-            <h1>Leaf Client<br><span>docs.</span></h1>
-            <p class="lead">Setting up the launcher, what your PC needs, and how server owners can switch Leaf features off on their server.</p>
+            <h1>Axquen Client<br><span>docs.</span></h1>
+            <p class="lead">Setting up the launcher, what your PC needs, and how server owners can switch Axquen features off on their server.</p>
         </section>
 
         <div class="docs-layout container">
@@ -109,12 +109,12 @@
             <div class="docs-content">
                 <section class="docs-section" id="intro">
                     <div class="docs-section-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>Overview</div>
-                    <h2>What is Leaf Client?</h2>
-                    <p class="docs-lead">Leaf Client is a free Minecraft client for Fabric, Forge and NeoForge. It ships with 35+ built-in mods, HUD elements, quality-of-life mechanics and performance mods, all configurable in game or through the launcher.</p>
+                    <h2>What is Axquen Client?</h2>
+                    <p class="docs-lead">Axquen Client is a free Minecraft client for Fabric, Forge and NeoForge. It ships with 35+ built-in mods, HUD elements, quality-of-life mechanics and performance mods, all configurable in game or through the launcher.</p>
 
                     <div class="callout callout-info">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-                        <div>Leaf Client is currently in <strong>beta</strong>. Features are still being built and improved. Join the <a href="https://discord.gg/wvYqKpUNdb" target="_blank" rel="noopener">Discord</a> to follow updates and report issues.</div>
+                        <div>Axquen Client is currently in <strong>beta</strong>. Features are still being built and improved. Join the <a href="https://discord.gg/wvYqKpUNdb" target="_blank" rel="noopener">Discord</a> to follow updates and report issues.</div>
                     </div>
 
                     <ul class="docs-feature-list">
@@ -149,7 +149,7 @@
                         <li>
                             <div>
                                 <strong>Pick a Minecraft version</strong>
-                                <p>Choose a version in the version selector. Leaf Client supports <strong>1.8.9, 1.21 through 1.21.11 and 26.1.2</strong> on Fabric, Forge and NeoForge. On Fabric, Sodium and Lithium are installed automatically.</p>
+                                <p>Choose a version in the version selector. Axquen Client supports <strong>1.8.9, 1.21 through 1.21.11 and 26.1.2</strong> on Fabric, Forge and NeoForge. On Fabric, Sodium and Lithium are installed automatically.</p>
                             </div>
                         </li>
                         <li>
@@ -161,7 +161,7 @@
                         <li>
                             <div>
                                 <strong>Open the mod menu in game</strong>
-                                <p>Press <kbd>Right Shift</kbd> to open the Leaf Client mod menu. Turn mods on or off and change their settings there.</p>
+                                <p>Press <kbd>Right Shift</kbd> to open the Axquen Client mod menu. Turn mods on or off and change their settings there.</p>
                             </div>
                         </li>
                     </ol>
@@ -195,7 +195,7 @@
                 <section class="docs-section" id="server-control">
                     <div class="docs-section-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>For server operators</div>
                     <h2>Server-side feature control</h2>
-                    <p class="docs-lead">Leaf Client listens on a plugin messaging channel that lets servers disable specific client features while a player is connected. Use it if your server wants to restrict some of the supported mods.</p>
+                    <p class="docs-lead">Axquen Client listens on a plugin messaging channel that lets servers disable specific client features while a player is connected. Use it if your server wants to restrict some of the supported mods.</p>
 
                     <div class="callout callout-server">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
@@ -203,15 +203,15 @@
                     </div>
 
                     <h3>How it works</h3>
-                    <p>Once a player has joined your server and their client has registered the channel, your plugin sends a plugin message on the <span class="channel-pill">leafclient:control</span> channel. The payload is a UTF-8 encoded JSON object listing the mod IDs you want to disable.</p>
-                    <p>Leaf Client receives the packet and disables every listed mod for the rest of the session. The player's own settings are not changed, and everything goes back to normal on reconnect. Players cannot turn server-disabled features back on while they stay connected.</p>
+                    <p>Once a player has joined your server and their client has registered the channel, your plugin sends a plugin message on the <span class="channel-pill">axquenclient:control</span> channel. The payload is a UTF-8 encoded JSON object listing the mod IDs you want to disable.</p>
+                    <p>Axquen Client receives the packet and disables every listed mod for the rest of the session. The player's own settings are not changed, and everything goes back to normal on reconnect. Players cannot turn server-disabled features back on while they stay connected.</p>
                     <p>This uses the standard Minecraft plugin messaging protocol, so it works on <strong>every major server platform</strong>: Bukkit, Spigot, Paper, Purpur, Velocity, BungeeCord, Sponge, Fabric server-side and more. Vanilla clients that don't register the channel ignore the packet.</p>
 
                     <h3>Payload format</h3>
                     <p>Send a single JSON object with a <code>disabled</code> array containing the mod IDs to restrict. One packet can disable one mod or several.</p>
                     <div class="code-block">
                         <div class="code-block-header">
-                            <span class="code-lang">JSON, leafclient:control payload</span>
+                            <span class="code-lang">JSON, axquenclient:control payload</span>
                             <button type="button" class="code-copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span>Copy</span></button>
                         </div>
                         <pre><code>{ <st>"disabled"</st>: [<st>"freelook"</st>, <st>"fullbright"</st>] }</code></pre>
@@ -229,24 +229,24 @@
                         </table>
                     </div>
 
-                    <h3>Detection: is a player running Leaf Client?</h3>
-                    <p>Leaf Client registers the <code>leafclient:control</code> and <code>leafclient:disable</code> channels using the standard Minecraft channel registration handshake. On 1.8.9 the registration arrives just after the player joins, so in <code>PlayerJoinEvent</code> the channel is not listed yet. Check the registered channels on join, and also listen for <code>PlayerRegisterChannelEvent</code> to catch players whose registration arrives later.</p>
+                    <h3>Detection: is a player running Axquen Client?</h3>
+                    <p>Axquen Client registers the <code>axquenclient:control</code> and <code>axquenclient:disable</code> channels using the standard Minecraft channel registration handshake. On 1.8.9 the registration arrives just after the player joins, so in <code>PlayerJoinEvent</code> the channel is not listed yet. Check the registered channels on join, and also listen for <code>PlayerRegisterChannelEvent</code> to catch players whose registration arrives later.</p>
                     <div class="code-block">
                         <div class="code-block-header">
-                            <span class="code-lang">Java, Paper, detect Leaf Client</span>
+                            <span class="code-lang">Java, Paper, detect Axquen Client</span>
                             <button type="button" class="code-copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span>Copy</span></button>
                         </div>
                         <pre><code><an>@EventHandler</an>
 <kw>public void</kw> <fn>onJoin</fn>(<ty>PlayerJoinEvent</ty> e) {
-    <kw>if</kw> (e.<fn>getPlayer</fn>().<fn>getListeningPluginChannels</fn>().<fn>contains</fn>(<st>"leafclient:control"</st>)) {
-        <cm>// player is running Leaf Client</cm>
+    <kw>if</kw> (e.<fn>getPlayer</fn>().<fn>getListeningPluginChannels</fn>().<fn>contains</fn>(<st>"axquenclient:control"</st>)) {
+        <cm>// player is running Axquen Client</cm>
     }
 }
 
 <an>@EventHandler</an>
 <kw>public void</kw> <fn>onRegister</fn>(<ty>PlayerRegisterChannelEvent</ty> e) {
-    <kw>if</kw> (e.<fn>getChannel</fn>().<fn>equals</fn>(<st>"leafclient:control"</st>) &amp;&amp; e.<fn>getPlayer</fn>().<fn>isOnline</fn>()) {
-        <cm>// player is running Leaf Client and registered after joining</cm>
+    <kw>if</kw> (e.<fn>getChannel</fn>().<fn>equals</fn>(<st>"axquenclient:control"</st>) &amp;&amp; e.<fn>getPlayer</fn>().<fn>isOnline</fn>()) {
+        <cm>// player is running Axquen Client and registered after joining</cm>
     }
 }</code></pre>
                     </div>
@@ -261,7 +261,7 @@
                         <table class="docs-table">
                             <thead><tr><th>Property</th><th>Value</th></tr></thead>
                             <tbody>
-                                <tr><td>channel</td><td>leafclient:control</td></tr>
+                                <tr><td>channel</td><td>axquenclient:control</td></tr>
                                 <tr><td>direction</td><td>Server to client (S2C only)</td></tr>
                                 <tr><td>payload encoding</td><td>UTF-8 JSON string</td></tr>
                                 <tr><td>payload schema</td><td><code>{"disabled": ["mod_id", ...]}</code></td></tr>
@@ -274,7 +274,7 @@
 
                     <div class="callout callout-warn">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
-                        <div>This channel only affects <strong>Leaf Client</strong>. Vanilla clients and other modpacks ignore the packet, so it is safe to send to every player without checking first. Bukkit, Spigot and Paper only deliver it once the player has registered the channel, which 1.8.9 does just after joining.</div>
+                        <div>This channel only affects <strong>Axquen Client</strong>. Vanilla clients and other modpacks ignore the packet, so it is safe to send to every player without checking first. Bukkit, Spigot and Paper only deliver it once the player has registered the channel, which 1.8.9 does just after joining.</div>
                     </div>
 
                     <h3>plugin.yml declaration</h3>
@@ -290,17 +290,17 @@ main: com.example.myplugin.MyPlugin
 api-version: 1.20
 
 channels:
-  - leafclient:control</code></pre>
+  - axquenclient:control</code></pre>
                     </div>
 
                     <h3>Full working example, PaperMC plugin</h3>
-                    <p>A complete, minimal PaperMC plugin that disables Freelook for every Leaf Client player as soon as their client has registered the channel. Use it as a starting point and add or remove mod IDs in the JSON array.</p>
+                    <p>A complete, minimal PaperMC plugin that disables Freelook for every Axquen Client player as soon as their client has registered the channel. Use it as a starting point and add or remove mod IDs in the JSON array.</p>
                     <div class="code-block">
                         <div class="code-block-header">
                             <span class="code-lang">Java, PaperMC plugin (full example)</span>
                             <button type="button" class="code-copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span>Copy</span></button>
                         </div>
-                        <pre><code><kw>package</kw> com.example.leafcontrol;
+                        <pre><code><kw>package</kw> com.example.axquencontrol;
 
 <kw>import</kw> org.bukkit.entity.Player;
 <kw>import</kw> org.bukkit.event.EventHandler;
@@ -311,9 +311,9 @@ channels:
 
 <kw>import</kw> java.nio.charset.StandardCharsets;
 
-<kw>public class</kw> <ty>LeafControlPlugin</ty> <kw>extends</kw> <ty>JavaPlugin</ty> <kw>implements</kw> <ty>Listener</ty> {
+<kw>public class</kw> <ty>AxquenControlPlugin</ty> <kw>extends</kw> <ty>JavaPlugin</ty> <kw>implements</kw> <ty>Listener</ty> {
 
-    <kw>private static final</kw> <ty>String</ty> CHANNEL = <st>"leafclient:control"</st>;
+    <kw>private static final</kw> <ty>String</ty> CHANNEL = <st>"axquenclient:control"</st>;
 
     <cm>/** JSON payload, add or remove mod IDs as needed */</cm>
     <kw>private static final</kw> <ty>String</ty> PAYLOAD =
@@ -323,7 +323,7 @@ channels:
     <kw>public void</kw> <fn>onEnable</fn>() {
         getServer().<fn>getMessenger</fn>().<fn>registerOutgoingPluginChannel</fn>(<kw>this</kw>, CHANNEL);
         getServer().<fn>getPluginManager</fn>().<fn>registerEvents</fn>(<kw>this</kw>, <kw>this</kw>);
-        <fn>getLogger</fn>().<fn>info</fn>(<st>"LeafControl enabled, freelook will be disabled for all players."</st>);
+        <fn>getLogger</fn>().<fn>info</fn>(<st>"AxquenControl enabled, freelook will be disabled for all players."</st>);
     }
 
     <an>@Override</an>
@@ -373,22 +373,22 @@ channels:
                         <pre><code><an>@Override</an>
 <kw>public void</kw> <fn>onEnable</fn>() {
     <ty>JavaPlugin</ty> plugin = <kw>this</kw>;
-    getServer().<fn>getMessenger</fn>().<fn>registerOutgoingPluginChannel</fn>(plugin, <st>"leafclient:disable"</st>);
+    getServer().<fn>getMessenger</fn>().<fn>registerOutgoingPluginChannel</fn>(plugin, <st>"axquenclient:disable"</st>);
 
     getServer().<fn>getPluginManager</fn>().<fn>registerEvents</fn>(<kw>new</kw> <ty>Listener</ty>() {
         <an>@EventHandler</an>
         <kw>public void</kw> <fn>onJoin</fn>(<ty>PlayerJoinEvent</ty> e) {
-            <kw>if</kw> (e.<fn>getPlayer</fn>().<fn>getListeningPluginChannels</fn>().<fn>contains</fn>(<st>"leafclient:disable"</st>)) <fn>send</fn>(e.<fn>getPlayer</fn>());
+            <kw>if</kw> (e.<fn>getPlayer</fn>().<fn>getListeningPluginChannels</fn>().<fn>contains</fn>(<st>"axquenclient:disable"</st>)) <fn>send</fn>(e.<fn>getPlayer</fn>());
         }
 
         <an>@EventHandler</an>
         <kw>public void</kw> <fn>onRegister</fn>(<ty>PlayerRegisterChannelEvent</ty> e) {
-            <kw>if</kw> (e.<fn>getChannel</fn>().<fn>equals</fn>(<st>"leafclient:disable"</st>) &amp;&amp; e.<fn>getPlayer</fn>().<fn>isOnline</fn>()) <fn>send</fn>(e.<fn>getPlayer</fn>());
+            <kw>if</kw> (e.<fn>getChannel</fn>().<fn>equals</fn>(<st>"axquenclient:disable"</st>) &amp;&amp; e.<fn>getPlayer</fn>().<fn>isOnline</fn>()) <fn>send</fn>(e.<fn>getPlayer</fn>());
         }
 
         <kw>private void</kw> <fn>send</fn>(<ty>Player</ty> player) {
             <ty>byte</ty>[] payload = <st>"freelook"</st>.<fn>getBytes</fn>(<ty>StandardCharsets</ty>.UTF_8);
-            player.<fn>sendPluginMessage</fn>(plugin, <st>"leafclient:disable"</st>, payload);
+            player.<fn>sendPluginMessage</fn>(plugin, <st>"axquenclient:disable"</st>, payload);
         }
     }, <kw>this</kw>);
 }</code></pre>
@@ -402,7 +402,7 @@ channels:
                         </div>
                         <pre><code><an>@Subscribe</an>
 <kw>public void</kw> <fn>onPostLogin</fn>(<ty>PostLoginEvent</ty> event) {
-    <ty>ChannelIdentifier</ty> channel = <ty>MinecraftChannelIdentifier</ty>.<fn>from</fn>(<st>"leafclient:disable"</st>);
+    <ty>ChannelIdentifier</ty> channel = <ty>MinecraftChannelIdentifier</ty>.<fn>from</fn>(<st>"axquenclient:disable"</st>);
     server.<fn>getChannelRegistrar</fn>().<fn>register</fn>(channel);
 
     <ty>byte</ty>[] payload = <st>"freelook"</st>.<fn>getBytes</fn>(<ty>StandardCharsets</ty>.UTF_8);
@@ -418,13 +418,13 @@ channels:
                         </div>
                         <pre><code><an>@Override</an>
 <kw>public void</kw> <fn>onEnable</fn>() {
-    getProxy().<fn>registerChannel</fn>(<st>"leafclient:disable"</st>);
+    getProxy().<fn>registerChannel</fn>(<st>"axquenclient:disable"</st>);
 
     getProxy().<fn>getPluginManager</fn>().<fn>registerListener</fn>(<kw>this</kw>, <kw>new</kw> <ty>Listener</ty>() {
         <an>@EventHandler</an>
         <kw>public void</kw> <fn>onJoin</fn>(<ty>PostLoginEvent</ty> e) {
             <ty>byte</ty>[] payload = <st>"freelook"</st>.<fn>getBytes</fn>(<ty>StandardCharsets</ty>.UTF_8);
-            e.<fn>getPlayer</fn>().<fn>sendData</fn>(<st>"leafclient:disable"</st>, payload);
+            e.<fn>getPlayer</fn>().<fn>sendData</fn>(<st>"axquenclient:disable"</st>, payload);
         }
     });
 }</code></pre>
@@ -435,7 +435,7 @@ channels:
                         <table class="docs-table">
                             <thead><tr><th>Property</th><th>Value</th></tr></thead>
                             <tbody>
-                                <tr><td>channel</td><td>leafclient:disable</td></tr>
+                                <tr><td>channel</td><td>axquenclient:disable</td></tr>
                                 <tr><td>direction</td><td>Server to client (S2C only)</td></tr>
                                 <tr><td>payload</td><td>UTF-8 string: <code>"freelook"</code></td></tr>
                                 <tr><td>timing</td><td>Send once the player has registered the channel (PlayerJoinEvent and PlayerRegisterChannelEvent on Bukkit, PostLoginEvent on proxies)</td></tr>
@@ -447,7 +447,7 @@ channels:
 
                     <div class="callout callout-warn">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
-                        <div>The <code>leafclient:disable</code> channel is shared. Send <code>"freelook"</code> and <code>"fullbright"</code> as separate packets on the same channel to disable both.</div>
+                        <div>The <code>axquenclient:disable</code> channel is shared. Send <code>"freelook"</code> and <code>"fullbright"</code> as separate packets on the same channel to disable both.</div>
                     </div>
                 </section>
 
@@ -470,22 +470,22 @@ channels:
                         <pre><code><an>@Override</an>
 <kw>public void</kw> <fn>onEnable</fn>() {
     <ty>JavaPlugin</ty> plugin = <kw>this</kw>;
-    getServer().<fn>getMessenger</fn>().<fn>registerOutgoingPluginChannel</fn>(plugin, <st>"leafclient:disable"</st>);
+    getServer().<fn>getMessenger</fn>().<fn>registerOutgoingPluginChannel</fn>(plugin, <st>"axquenclient:disable"</st>);
 
     getServer().<fn>getPluginManager</fn>().<fn>registerEvents</fn>(<kw>new</kw> <ty>Listener</ty>() {
         <an>@EventHandler</an>
         <kw>public void</kw> <fn>onJoin</fn>(<ty>PlayerJoinEvent</ty> e) {
-            <kw>if</kw> (e.<fn>getPlayer</fn>().<fn>getListeningPluginChannels</fn>().<fn>contains</fn>(<st>"leafclient:disable"</st>)) <fn>send</fn>(e.<fn>getPlayer</fn>());
+            <kw>if</kw> (e.<fn>getPlayer</fn>().<fn>getListeningPluginChannels</fn>().<fn>contains</fn>(<st>"axquenclient:disable"</st>)) <fn>send</fn>(e.<fn>getPlayer</fn>());
         }
 
         <an>@EventHandler</an>
         <kw>public void</kw> <fn>onRegister</fn>(<ty>PlayerRegisterChannelEvent</ty> e) {
-            <kw>if</kw> (e.<fn>getChannel</fn>().<fn>equals</fn>(<st>"leafclient:disable"</st>) &amp;&amp; e.<fn>getPlayer</fn>().<fn>isOnline</fn>()) <fn>send</fn>(e.<fn>getPlayer</fn>());
+            <kw>if</kw> (e.<fn>getChannel</fn>().<fn>equals</fn>(<st>"axquenclient:disable"</st>) &amp;&amp; e.<fn>getPlayer</fn>().<fn>isOnline</fn>()) <fn>send</fn>(e.<fn>getPlayer</fn>());
         }
 
         <kw>private void</kw> <fn>send</fn>(<ty>Player</ty> player) {
             <ty>byte</ty>[] payload = <st>"fullbright"</st>.<fn>getBytes</fn>(<ty>StandardCharsets</ty>.UTF_8);
-            player.<fn>sendPluginMessage</fn>(plugin, <st>"leafclient:disable"</st>, payload);
+            player.<fn>sendPluginMessage</fn>(plugin, <st>"axquenclient:disable"</st>, payload);
         }
     }, <kw>this</kw>);
 }</code></pre>
@@ -499,7 +499,7 @@ channels:
                         </div>
                         <pre><code><an>@Subscribe</an>
 <kw>public void</kw> <fn>onPostLogin</fn>(<ty>PostLoginEvent</ty> event) {
-    <ty>ChannelIdentifier</ty> channel = <ty>MinecraftChannelIdentifier</ty>.<fn>from</fn>(<st>"leafclient:disable"</st>);
+    <ty>ChannelIdentifier</ty> channel = <ty>MinecraftChannelIdentifier</ty>.<fn>from</fn>(<st>"axquenclient:disable"</st>);
     server.<fn>getChannelRegistrar</fn>().<fn>register</fn>(channel);
 
     <ty>byte</ty>[] payload = <st>"fullbright"</st>.<fn>getBytes</fn>(<ty>StandardCharsets</ty>.UTF_8);
@@ -512,7 +512,7 @@ channels:
                         <table class="docs-table">
                             <thead><tr><th>Property</th><th>Value</th></tr></thead>
                             <tbody>
-                                <tr><td>channel</td><td>leafclient:disable</td></tr>
+                                <tr><td>channel</td><td>axquenclient:disable</td></tr>
                                 <tr><td>direction</td><td>Server to client (S2C only)</td></tr>
                                 <tr><td>payload</td><td>UTF-8 string: <code>"fullbright"</code></td></tr>
                                 <tr><td>timing</td><td>Send once the player has registered the channel (PlayerJoinEvent and PlayerRegisterChannelEvent on Bukkit, PostLoginEvent on proxies)</td></tr>
@@ -524,7 +524,7 @@ channels:
 
                     <div class="callout callout-warn">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
-                        <div>The <code>leafclient:disable</code> channel is shared. You can send <code>"freelook"</code> and <code>"fullbright"</code> as separate packets on the same channel to disable both.</div>
+                        <div>The <code>axquenclient:disable</code> channel is shared. You can send <code>"freelook"</code> and <code>"fullbright"</code> as separate packets on the same channel to disable both.</div>
                     </div>
                 </section>
             </div>
@@ -534,9 +534,9 @@ channels:
     <footer class="footer container">
         <div class="footer-top">
             <div class="footer-brand-col">
-                <a href="/" class="brand" aria-label="Leaf Client home">
+                <a href="/" class="brand" aria-label="Axquen Client home">
                     <img src="../assets/logo.webp" width="30" height="30" alt="">
-                    <span>Leaf <span class="brand-light">Client</span></span>
+                    <span>Axquen <span class="brand-light">Client</span></span>
                 </a>
                 <p>A free Minecraft launcher and client.</p>
                 <div class="footer-social">
@@ -559,7 +559,7 @@ channels:
                     <a href="https://discord.gg/wvYqKpUNdb" target="_blank" rel="noopener">Discord</a>
                 </div>
                 <div>
-                    <strong>Leaf Client</strong>
+                    <strong>Axquen Client</strong>
                     <a href="/privacy">Privacy policy</a>
                     <a href="/terms">Terms of service</a>
                     <a href="/contact">Contact</a>
@@ -576,7 +576,7 @@ channels:
             </div>
         </div>
         <div class="footer-bottom">
-            <span>&copy; 2026 ATLAS STUDIOS LLC.</span>
+            <span>&copy; 2026 Chaos Worths.</span>
             <span>Not affiliated with Mojang, Microsoft, or Minecraft. All third-party names and trademarks belong to their owners. Check server rules before using features like Spectate or Minimap.</span>
             <a href="#main">Back to top <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></a>
         </div>

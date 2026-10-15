@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Leaf Client Status Updates</title>
-    <link>https://leafclient.com/status</link>
-    <description>Service status, incidents, and resolutions for Leaf Client.</description>
+    <title>Axquen Client Status Updates</title>
+    <link>https://github.com/choasworths/client/status</link>
+    <description>Service status, incidents, and resolutions for Axquen Client.</description>
     <language>en-us</language>
     <lastBuildDate>Thu, 15 Oct 2026 04:35:31 +0000</lastBuildDate>
-    <atom:link href="https://leafclient.com/status/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/choasworths/client/status/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mod CDN outage resolved</title>
-      <link>https://leafclient.com/status</link>
+      <link>https://github.com/choasworths/client/status</link>
       <guid isPermaLink="false">autocdn20260630T055056Z</guid>
       <pubDate>Tue, 30 Jun 2026 06:00:55 +0000</pubDate>
       <description><![CDATA[<p><strong>Service:</strong> Mod CDN</p><p><strong>Started:</strong> 2026-06-30T05:50:56Z</p><p><strong>Resolved:</strong> 2026-06-30T06:00:55Z (duration: 9 min)</p><p>Mod CDN recovered after 9 minute(s).</p>]]></description>
     </item>
     <item>
       <title>Website outage resolved</title>
-      <link>https://leafclient.com/status</link>
+      <link>https://github.com/choasworths/client/status</link>
       <guid isPermaLink="false">autowebsite20260612T090849Z</guid>
       <pubDate>Fri, 12 Jun 2026 15:08:52 +0000</pubDate>
       <description><![CDATA[<p><strong>Service:</strong> Website</p><p><strong>Started:</strong> 2026-06-12T09:08:49Z</p><p><strong>Resolved:</strong> 2026-06-12T15:08:52Z (duration: 360 min)</p><p>Website recovered after 360 minute(s).</p>]]></description>
     </item>
     <item>
       <title>API outage resolved</title>
-      <link>https://leafclient.com/status</link>
+      <link>https://github.com/choasworths/client/status</link>
       <guid isPermaLink="false">autoapi20260508T222741Z</guid>
       <pubDate>Fri, 08 May 2026 22:42:26 +0000</pubDate>
       <description><![CDATA[<p><strong>Service:</strong> API</p><p><strong>Started:</strong> 2026-05-08T22:27:41Z</p><p><strong>Resolved:</strong> 2026-05-08T22:42:26Z (duration: 14 min)</p><p>API recovered after 14 minute(s).</p>]]></description>

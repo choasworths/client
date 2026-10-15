@@ -1,5 +1,5 @@
 (function () {
-    var API = 'https://api.leafclient.com';
+    var API = 'https://api.chaosworths.com';
     var STEVE_SKIN = '/assets/steve.png';
     var LIMIT = 50;
     var state = { metric: 'playtime', rows: [], board: null, me: null };
@@ -21,7 +21,7 @@
     var skinCache = {};
     function loadSkin(url) {
         if (skinCache[url]) return Promise.resolve(skinCache[url]);
-        var R = window.LeafCosmeticRenderer;
+        var R = window.AxquenCosmeticRenderer;
         return R.loadImage(url)
             .then(function (img) { var d = R.imageToData(img); skinCache[url] = d; return d; })
             .catch(function () {
@@ -66,7 +66,7 @@
     }
 
     function renderInto(canvas, row, big, rank) {
-        var R = window.LeafCosmeticRenderer;
+        var R = window.AxquenCosmeticRenderer;
         if (!R) return;
         var w = canvas.width, h = canvas.height;
         Promise.all([loadSkin(window.lcSkinUrl(row)), window.lcSkinModel(row)]).then(function (res) {
@@ -123,9 +123,9 @@
                 '<div class="lb-medal medal-' + rank + '">' + rank + '</div>' +
                 '<div class="lb-podium-stage"><canvas class="lb-skin" width="150" height="210"></canvas></div>' +
                 '<div class="lb-podium-name">' + escapeHtml(row.username) +
-                    (row.leafPlus ? ' <span class="lb-plus">LEAF+</span>' : '') + '</div>' +
+                    (row.axquenPlus ? ' <span class="lb-plus">AXQUEN+</span>' : '') + '</div>' +
                 '<div class="lb-podium-val">' +
-                    (state.metric === 'points' ? '<img class="lb-leaf-ic" src="../assets/leaf_points.svg" alt=""> ' : '') +
+                    (state.metric === 'points' ? '<img class="lb-axquen-ic" src="../assets/axquen_points.svg" alt=""> ' : '') +
                     metricLabel(row) + '</div>';
             podium.appendChild(card);
             renderInto(card.querySelector('.lb-skin'), row, true, rank);
@@ -143,17 +143,17 @@
                 '<div class="lb-rank">' + rank + '</div>' +
                 '<div class="lb-row-stage"><canvas class="lb-skin-sm" width="88" height="120"></canvas></div>' +
                 '<div class="lb-info"><div class="lb-name">' + escapeHtml(row.username) +
-                    (row.leafPlus ? ' <span class="lb-plus">LEAF+</span>' : '') + '</div>' +
+                    (row.axquenPlus ? ' <span class="lb-plus">AXQUEN+</span>' : '') + '</div>' +
                     '<div class="lb-bar"><span style="width:' + pct + '%"></span></div></div>' +
                 '<div class="lb-val">' +
-                    (state.metric === 'points' ? '<img class="lb-leaf-ic" src="../assets/leaf_points.svg" alt=""> ' : '') +
+                    (state.metric === 'points' ? '<img class="lb-axquen-ic" src="../assets/axquen_points.svg" alt=""> ' : '') +
                     metricLabel(row) + '</div>';
             list.appendChild(el);
             renderInto(el.querySelector('.lb-skin-sm'), row, false, rank);
         });
 
         var unit = document.getElementById('lb-metric-unit');
-        if (unit) unit.textContent = state.metric === 'playtime' ? 'ranked by hours played' : 'ranked by leaf points';
+        if (unit) unit.textContent = state.metric === 'playtime' ? 'ranked by hours played' : 'ranked by axquen points';
         markMe();
     }
 
@@ -193,7 +193,7 @@
                         username: u.username,
                         playtime: Number(u.playtime) || 0,
                         coins: Number(u.coins) || 0,
-                        leafPlus: u.leafPlus === true,
+                        axquenPlus: u.axquenPlus === true,
                         uuid: u.uuid,
                         skin: u.skin
                     };

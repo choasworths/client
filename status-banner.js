@@ -1,10 +1,10 @@
 (function () {
     'use strict';
-    if (window.__leafStatusBannerLoaded) return;
-    window.__leafStatusBannerLoaded = true;
+    if (window.__axquenStatusBannerLoaded) return;
+    window.__axquenStatusBannerLoaded = true;
 
     var BANNER_URL = '/status/banner.json';
-    var STORAGE_KEY = 'leaf_status_banner_dismissed';
+    var STORAGE_KEY = 'axquen_status_banner_dismissed';
 
     function fetchJson(url) {
         return fetch(url + '?_=' + Date.now(), { cache: 'no-store' })
@@ -12,28 +12,28 @@
     }
 
     function injectStyles() {
-        if (document.getElementById('leaf-status-banner-css')) return;
+        if (document.getElementById('axquen-status-banner-css')) return;
         var css = document.createElement('style');
-        css.id = 'leaf-status-banner-css';
+        css.id = 'axquen-status-banner-css';
         css.textContent = [
-            '.leaf-status-banner{position:fixed;left:0;right:0;top:0;z-index:9999;display:flex;align-items:center;justify-content:center;gap:.65rem;',
+            '.axquen-status-banner{position:fixed;left:0;right:0;top:0;z-index:9999;display:flex;align-items:center;justify-content:center;gap:.65rem;',
             'padding:.55rem 1rem;font:500 .85rem/1.3 "Sora",-apple-system,system-ui,sans-serif;color:#fff;text-decoration:none;',
             'border-bottom:1px solid rgba(0,0,0,.25);box-shadow:0 4px 16px rgba(0,0,0,.25);',
             'transform:translateY(-100%);transition:transform .45s cubic-bezier(.16,1,.3,1);will-change:transform;}',
-            '.leaf-status-banner.show{transform:translateY(0);}',
-            '.leaf-status-banner-outage{background:linear-gradient(90deg,#dc2626,#ef4444);}',
-            '.leaf-status-banner-warning{background:linear-gradient(90deg,#d97706,#f59e0b);}',
-            '.leaf-status-banner-maintenance{background:linear-gradient(90deg,#2563eb,#3b82f6);}',
-            '.leaf-status-banner-info{background:linear-gradient(90deg,#059669,#10b981);}',
-            '.leaf-status-banner svg{flex-shrink:0;width:16px;height:16px;}',
-            '.leaf-status-banner strong{font-weight:700;letter-spacing:.02em;}',
-            '.leaf-status-banner-msg{opacity:.92;font-weight:400;}',
-            '.leaf-status-banner-link{color:#fff;text-decoration:underline;text-underline-offset:2px;font-weight:600;margin-left:.35rem;}',
-            '.leaf-status-banner-close{margin-left:.5rem;background:rgba(255,255,255,.18);border:none;color:#fff;width:22px;height:22px;border-radius:50%;cursor:pointer;font-size:.7rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s ease;}',
-            '.leaf-status-banner-close:hover{background:rgba(255,255,255,.32);}',
-            '@media(max-width:640px){.leaf-status-banner{font-size:.78rem;padding:.45rem .65rem;flex-wrap:wrap;}.leaf-status-banner-msg{display:none;}}',
-            'body.leaf-status-banner-active{padding-top:42px;transition:padding-top .35s ease;}',
-            'body.leaf-status-banner-active .header{top:42px;transition:top .35s ease;}'
+            '.axquen-status-banner.show{transform:translateY(0);}',
+            '.axquen-status-banner-outage{background:linear-gradient(90deg,#dc2626,#ef4444);}',
+            '.axquen-status-banner-warning{background:linear-gradient(90deg,#d97706,#f59e0b);}',
+            '.axquen-status-banner-maintenance{background:linear-gradient(90deg,#2563eb,#3b82f6);}',
+            '.axquen-status-banner-info{background:linear-gradient(90deg,#059669,#10b981);}',
+            '.axquen-status-banner svg{flex-shrink:0;width:16px;height:16px;}',
+            '.axquen-status-banner strong{font-weight:700;letter-spacing:.02em;}',
+            '.axquen-status-banner-msg{opacity:.92;font-weight:400;}',
+            '.axquen-status-banner-link{color:#fff;text-decoration:underline;text-underline-offset:2px;font-weight:600;margin-left:.35rem;}',
+            '.axquen-status-banner-close{margin-left:.5rem;background:rgba(255,255,255,.18);border:none;color:#fff;width:22px;height:22px;border-radius:50%;cursor:pointer;font-size:.7rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s ease;}',
+            '.axquen-status-banner-close:hover{background:rgba(255,255,255,.32);}',
+            '@media(max-width:640px){.axquen-status-banner{font-size:.78rem;padding:.45rem .65rem;flex-wrap:wrap;}.axquen-status-banner-msg{display:none;}}',
+            'body.axquen-status-banner-active{padding-top:42px;transition:padding-top .35s ease;}',
+            'body.axquen-status-banner-active .header{top:42px;transition:top .35s ease;}'
         ].join('');
         document.head.appendChild(css);
     }
@@ -60,8 +60,8 @@
     }
 
     function render(banner) {
-        var current = document.getElementById('leaf-status-banner');
-        if (current) { current.remove(); document.body.classList.remove('leaf-status-banner-active'); }
+        var current = document.getElementById('axquen-status-banner');
+        if (current) { current.remove(); document.body.classList.remove('axquen-status-banner-active'); }
         if (!banner || !banner.active) return;
         if (isDismissed(banner)) return;
 
@@ -69,8 +69,8 @@
         injectStyles();
 
         var el = document.createElement('div');
-        el.id = 'leaf-status-banner';
-        el.className = 'leaf-status-banner leaf-status-banner-' + type;
+        el.id = 'axquen-status-banner';
+        el.className = 'axquen-status-banner axquen-status-banner-' + type;
         el.setAttribute('role', type === 'outage' ? 'alert' : 'status');
 
         var icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -87,16 +87,16 @@
         titleEl.textContent = banner.title || 'Service notice';
 
         var msgEl = document.createElement('span');
-        msgEl.className = 'leaf-status-banner-msg';
+        msgEl.className = 'axquen-status-banner-msg';
         msgEl.textContent = banner.message || '';
 
         var link = document.createElement('a');
-        link.className = 'leaf-status-banner-link';
+        link.className = 'axquen-status-banner-link';
         link.href = '/status';
         link.textContent = 'View status \u2192';
 
         var close = document.createElement('button');
-        close.className = 'leaf-status-banner-close';
+        close.className = 'axquen-status-banner-close';
         close.type = 'button';
         close.setAttribute('aria-label', 'Dismiss banner');
         close.innerHTML = '\u2715';
@@ -105,7 +105,7 @@
             el.classList.remove('show');
             setTimeout(function () {
                 el.remove();
-                document.body.classList.remove('leaf-status-banner-active');
+                document.body.classList.remove('axquen-status-banner-active');
             }, 450);
         });
 
@@ -117,7 +117,7 @@
         document.body.appendChild(el);
 
         requestAnimationFrame(function () {
-            document.body.classList.add('leaf-status-banner-active');
+            document.body.classList.add('axquen-status-banner-active');
             el.classList.add('show');
         });
     }

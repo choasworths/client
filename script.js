@@ -2,7 +2,7 @@
     'use strict';
 
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    var CDN = 'https://leaf.sfo3.digitaloceanspaces.com';
+    var CDN = 'https://cdn.chaosworths.com';
 
     function byId(id) { return document.getElementById(id); }
 
@@ -176,7 +176,7 @@
 
         var verEl = byId('version-text');
         if (verEl) {
-            var pinned = ((byId('download-btn').getAttribute('href') || '').match(/LeafClientSetup-([0-9]+\.[0-9]+\.[0-9]+)-/) || [])[1];
+            var pinned = ((byId('download-btn').getAttribute('href') || '').match(/AxquenClientSetup-([0-9]+\.[0-9]+\.[0-9]+)-/) || [])[1];
             verEl.textContent = pinned ? 'Latest: v' + pinned : 'Latest release';
         }
 
@@ -255,7 +255,7 @@
             loading.hidden = state !== 'loading';
             action.hidden = state === 'loading';
             action.href = url || '/download';
-            actionLabel.textContent = url ? 'Download Leaf Client' : 'Open the download page';
+            actionLabel.textContent = url ? 'Download Axquen Client' : 'Open the download page';
             if (url) action.setAttribute('download', '');
             else action.removeAttribute('download');
             if (state === 'error' && note) note.textContent = 'Could not reach the release server. The download page has every build.';
@@ -455,7 +455,7 @@
 
     function fetchStaff() {
         if (staffPromise) return staffPromise;
-        staffPromise = fetch('https://api.leafclient.com/cosmetics/staff', { credentials: 'omit' })
+        staffPromise = fetch('https://api.chaosworths.com/cosmetics/staff', { credentials: 'omit' })
             .then(function (r) { return r.ok ? r.json() : []; })
             .then(function (list) { return Array.isArray(list) ? list : []; })
             .catch(function () { return []; });
@@ -474,7 +474,7 @@
         return found;
     }
 
-    function leafSkinUrl(entry) {
+    function axquenSkinUrl(entry) {
         var url = entry.skin ? entry.skin.url : null;
         return typeof url === 'string' && url.indexOf('https://') === 0 ? url : null;
     }
@@ -482,13 +482,13 @@
     function skinUrlFor(entry) {
         if (!entry) return STEVE_SKIN;
         if (UUID_RE.test(entry.uuid)) return 'https://minotar.net/skin/' + entry.uuid;
-        return leafSkinUrl(entry) || STEVE_SKIN;
+        return axquenSkinUrl(entry) || STEVE_SKIN;
     }
 
     function modelFor(entry) {
         if (!entry) return Promise.resolve(null);
-        if (UUID_RE.test(entry.uuid)) return LeafCosmeticRenderer.loadModelByUuid(entry.uuid);
-        if (leafSkinUrl(entry)) return Promise.resolve(entry.skin.model === 'slim');
+        if (UUID_RE.test(entry.uuid)) return AxquenCosmeticRenderer.loadModelByUuid(entry.uuid);
+        if (axquenSkinUrl(entry)) return Promise.resolve(entry.skin.model === 'slim');
         return Promise.resolve(null);
     }
 
@@ -614,7 +614,7 @@
                 switches.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
                 others.forEach(function (img) { img.classList.toggle('is-active', img.getAttribute('data-client') === client); });
                 label.textContent = name;
-                range.setAttribute('aria-label', 'Screenshot divider, Leaf Client on the left, ' + name + ' on the right');
+                range.setAttribute('aria-label', 'Screenshot divider, Axquen Client on the left, ' + name + ' on the right');
             });
         });
 
@@ -661,7 +661,7 @@
 
         function hide() { if (section) section.hidden = true; }
 
-        fetch('https://api.leafclient.com/news')
+        fetch('https://api.chaosworths.com/news')
             .then(function (r) { return r.ok ? r.json() : null; })
             .then(function (data) {
                 var items = data && Array.isArray(data.items) ? data.items.filter(function (i) { return i && i.title; }) : [];
@@ -720,7 +720,7 @@
         if (!track) return;
 
         var staff = [
-            { key: '140e8ed06001414691e86bdba05cd885', name: 'Atlas', role: 'Owner' },
+            { key: '140e8ed06001414691e86bdba05cd885', name: 'Chaos Worths', role: 'Owner' },
             { key: 'a8e90da7081949bf8ec3fe04386d6d0c', name: 'Z', role: 'Developer' },
             { key: '7773b7fa19e04d769a3eaba9015e77cb', name: 'Sheanan', role: 'Staff Manager' },
             { key: '', name: 'IIAhmadGamer', role: 'Social Media' },
@@ -776,16 +776,16 @@
             return fetchStaff()
                 .then(function (list) {
                     var entry = findStaff(list, member.key);
-                    return LeafCosmeticRenderer.loadImage(skinUrlFor(entry)).then(function (img) {
+                    return AxquenCosmeticRenderer.loadImage(skinUrlFor(entry)).then(function (img) {
                         return Promise.all([img, modelFor(entry)]);
                     }, function () {
-                        return Promise.all([LeafCosmeticRenderer.loadImage(STEVE_SKIN), null]);
+                        return Promise.all([AxquenCosmeticRenderer.loadImage(STEVE_SKIN), null]);
                     });
                 })
                 .then(function (res) {
-                    var skinData = LeafCosmeticRenderer.imageToData(res[0]);
+                    var skinData = AxquenCosmeticRenderer.imageToData(res[0]);
                     var isSlim = res[1];
-                    var frame = LeafCosmeticRenderer.renderFrame(skinData, null, null, null, canvas.width, canvas.height, {
+                    var frame = AxquenCosmeticRenderer.renderFrame(skinData, null, null, null, canvas.width, canvas.height, {
                         rotationY: pose.rotationY,
                         rotationX: pose.rotationX,
                         zoom: 1.1,
@@ -826,7 +826,7 @@
             });
         }
         function loadRenderer() {
-            if (typeof LeafCosmeticRenderer !== 'undefined') return Promise.resolve();
+            if (typeof AxquenCosmeticRenderer !== 'undefined') return Promise.resolve();
             return new Promise(function (resolve, reject) {
                 var s = document.createElement('script');
                 s.src = 'cosmeticRenderer.js?v=uuid-model-1';
@@ -881,7 +881,7 @@
     var LC_AT = 'lc_at';
     var LC_RT = 'lc_rt';
     var LC_UN = 'lc_un';
-    var API = 'https://api.leafclient.com';
+    var API = 'https://api.chaosworths.com';
 
     function getCsrfToken() {
         return fetch(API + '/csrf', { credentials: 'include' })
@@ -950,7 +950,7 @@
     }
 
     function ownSkinEntry() {
-        if (!navSession || navSession.kind !== 'leaf' || navSession.uuid) return Promise.resolve(navSession);
+        if (!navSession || navSession.kind !== 'axquen' || navSession.uuid) return Promise.resolve(navSession);
         return fetch(API + '/skin/me', { credentials: 'include' })
             .then(function (r) { return r.ok ? r.json() : null; })
             .then(function (data) { return { skin: data && data.skin }; })

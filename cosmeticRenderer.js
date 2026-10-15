@@ -10,7 +10,7 @@
         return Math.sin((local / window) * Math.PI);
     }
 
-    var API_BASE = 'https://api.leafclient.com';
+    var API_BASE = 'https://api.chaosworths.com';
     var modelCache = Object.create(null);
     var UUID_HEX = /^[0-9a-f]{32}$/;
 
@@ -1031,9 +1031,9 @@
             function evalBoneTransform(uuid, baseRot) {
                 if (!anim || !anim.animators[uuid]) return { rot: baseRot.slice(), pos: [0,0,0], scale: [1,1,1] };
                 var animator = anim.animators[uuid];
-                var rot = window.LeafBBModel.evalKeyframeChannel(animator, 'rotation', animTime, [0,0,0], anim);
-                var pos = window.LeafBBModel.evalKeyframeChannel(animator, 'position', animTime, [0,0,0], anim);
-                var scl = window.LeafBBModel.evalKeyframeChannel(animator, 'scale', animTime, [1,1,1], anim);
+                var rot = window.AxquenBBModel.evalKeyframeChannel(animator, 'rotation', animTime, [0,0,0], anim);
+                var pos = window.AxquenBBModel.evalKeyframeChannel(animator, 'position', animTime, [0,0,0], anim);
+                var scl = window.AxquenBBModel.evalKeyframeChannel(animator, 'scale', animTime, [1,1,1], anim);
                 return { rot: [baseRot[0] + rot[0], baseRot[1] + rot[1], baseRot[2] + rot[2]], pos: pos, scale: scl };
             }
 
@@ -1283,7 +1283,7 @@
         return area.findIndex(function (v) { return v * 10 >= max * 9; }) * BB_TIME_STEP;
     }
 
-    global.LeafCosmeticRenderer = {
+    global.AxquenCosmeticRenderer = {
         loadImage: loadImage,
         loadModelByUuid: loadModelByUuid,
         imageToData: imageToData,

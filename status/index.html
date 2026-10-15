@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script>(function(){var n=navigator,r=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches),l=r||(typeof n.deviceMemory==='number'&&n.deviceMemory<=4)||(typeof n.hardwareConcurrency==='number'&&n.hardwareConcurrency<=4)||!!(n.connection&&n.connection.saveData);window.lcLiteMode=l;if(l){document.documentElement.classList.add('lite');}})();</script>
+    <script>(function(){var n=navigator,r=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches),l=r||(typeof n.deviceMemory==='number'&&n.deviceMemory<=4)||(typeof n.hardwareConcurrency==='number'&&n.hardwareConcurrency<=4)||!!(n.connection&&n.connection.saveData);window.axqLiteMode=l;if(l){document.documentElement.classList.add('lite');}})();</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://api.leafclient.com; object-src 'none'; base-uri 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://api.chaosworths.com; object-src 'none'; base-uri 'self'">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="robots" content="noindex, follow">
-    <title>Leaf Client Status</title>
-    <link rel="canonical" href="https://leafclient.com/status">
-    <link rel="alternate" type="application/rss+xml" title="Leaf Client Status" href="/status/feed.xml">
+    <title>Axquen Client Status</title>
+    <link rel="canonical" href="https://github.com/choasworths/client/status">
+    <link rel="alternate" type="application/rss+xml" title="Axquen Client Status" href="/status/feed.xml">
     <link rel="icon" href="../assets/favicon.png">
     <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/sora-latin.woff2" crossorigin>
     <link rel="stylesheet" href="../style.css">
     <meta name="theme-color" content="#080b0c">
-    <meta name="description" content="Real-time status of LeafClient services. API, website, and CDN uptime, latency, and incidents.">
+    <meta name="description" content="Real-time status of AxquenClient services. API, website, and CDN uptime, latency, and incidents.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://leafclient.com/status">
-    <meta property="og:title" content="Leaf Client, Status">
-    <meta property="og:description" content="Real-time uptime and incident history for Leaf Client services.">
-    <meta property="og:image" content="https://leafclient.com/assets/logo.png">
+    <meta property="og:url" content="https://github.com/choasworths/client/status">
+    <meta property="og:title" content="Axquen Client, Status">
+    <meta property="og:description" content="Real-time uptime and incident history for Axquen Client services.">
+    <meta property="og:image" content="https://github.com/choasworths/client/assets/logo.png">
 </head>
 <body>
     <div class="ambient-glow is-quiet" aria-hidden="true"></div>
@@ -27,9 +27,9 @@
 
     <header class="header">
         <nav class="nav container" aria-label="Main navigation">
-            <a href="/" class="brand" aria-label="Leaf Client home">
+            <a href="/" class="brand" aria-label="Axquen Client home">
                 <img src="../assets/logo.webp" width="34" height="34" alt="">
-                <span>Leaf <span class="brand-light">Client</span></span>
+                <span>Axquen <span class="brand-light">Client</span></span>
             </a>
             <div class="nav-links">
                 <a href="/#features">Features</a>
@@ -52,8 +52,8 @@
                                 <div><strong id="nav-dropdown-name"></strong><span>Signed in</span></div>
                             </div>
                             <div class="account-points" id="nav-lp-display">
-                                <img class="lb-leaf-ic" src="../assets/leaf_points.svg" alt="">
-                                <span><strong id="nav-lp-count">0</strong> Leaf Points</span>
+                                <img class="lb-axquen-ic" src="../assets/axquen_points.svg" alt="">
+                                <span><strong id="nav-lp-count">0</strong> Axquen Points</span>
                             </div>
                             <div class="account-divider"></div>
                             <button type="button" class="account-item danger" id="nav-logout-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>Sign out</button>
@@ -82,7 +82,7 @@
     <main id="main">
         <section class="page-hero container">
             <span class="section-eyebrow">Service status</span>
-            <h1>Leaf Client<br><span>status.</span></h1>
+            <h1>Axquen Client<br><span>status.</span></h1>
             <p class="lead">Checked every 15 minutes from outside our own servers. Uptime, response times and past incidents for the API, the website and the mod CDN.</p>
         </section>
 
@@ -152,9 +152,9 @@
     <footer class="footer container">
         <div class="footer-top">
             <div class="footer-brand-col">
-                <a href="/" class="brand" aria-label="Leaf Client home">
+                <a href="/" class="brand" aria-label="Axquen Client home">
                     <img src="../assets/logo.webp" width="30" height="30" alt="">
-                    <span>Leaf <span class="brand-light">Client</span></span>
+                    <span>Axquen <span class="brand-light">Client</span></span>
                 </a>
                 <p>A free Minecraft launcher and client.</p>
                 <div class="footer-social">
@@ -177,7 +177,7 @@
                     <a href="https://discord.gg/wvYqKpUNdb" target="_blank" rel="noopener">Discord</a>
                 </div>
                 <div>
-                    <strong>Leaf Client</strong>
+                    <strong>Axquen Client</strong>
                     <a href="/privacy">Privacy policy</a>
                     <a href="/terms">Terms of service</a>
                     <a href="/contact">Contact</a>
@@ -194,7 +194,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <span>&copy; 2026 ATLAS STUDIOS LLC.</span>
+            <span>&copy; 2026 Chaos Worths.</span>
             <span>Not affiliated with Mojang, Microsoft, or Minecraft. All third-party names and trademarks belong to their owners. Check server rules before using features like Spectate or Minimap.</span>
             <a href="#main">Back to top <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></a>
         </div>
@@ -250,7 +250,7 @@
                 if (down.length === 0 && degraded.length === 0) {
                     section.classList.add('ok');
                     title.textContent = 'All systems operational';
-                    sub.textContent = 'Every Leaf Client service is responding normally.';
+                    sub.textContent = 'Every Axquen Client service is responding normally.';
                 } else if (down.length > 0) {
                     section.classList.add('down');
                     var names = down.map(function (id) {

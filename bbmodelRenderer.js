@@ -501,7 +501,7 @@
         return Promise.all(promises);
     }
 
-    global.LeafBBModel = {
+    global.AxquenBBModel = {
         parseModel: parseModel,
         evalKeyframeChannel: evalKeyframeChannel,
         loadModelTextures: loadModelTextures,

@@ -1,10 +1,10 @@
 (function () {
     'use strict';
-    if (window.__leafAccountLoaded) return;
-    window.__leafAccountLoaded = true;
+    if (window.__axquenAccountLoaded) return;
+    window.__axquenAccountLoaded = true;
     if (window.openAuthModal || document.getElementById('auth-modal')) return;
 
-    var API = 'https://api.leafclient.com';
+    var API = 'https://api.chaosworths.com';
     var authMode = 'login';
     var webLinkPoll = null;
     var countdownInterval = null;
@@ -148,9 +148,9 @@
     ].join('');
 
     function injectStyles() {
-        if (document.getElementById('leaf-account-css')) return;
+        if (document.getElementById('axquen-account-css')) return;
         var css = document.createElement('style');
-        css.id = 'leaf-account-css';
+        css.id = 'axquen-account-css';
         css.textContent = AUTH_CSS;
         document.head.appendChild(css);
     }
@@ -331,12 +331,12 @@
 
     function getDeviceHash() {
         try {
-            var id = localStorage.getItem('leaf_device_id');
+            var id = localStorage.getItem('axquen_device_id');
             if (!id) {
                 id = (crypto.randomUUID && crypto.randomUUID()) || (Date.now() + '-' + Math.random().toString(36).slice(2));
-                localStorage.setItem('leaf_device_id', id);
+                localStorage.setItem('axquen_device_id', id);
             }
-            var enc = new TextEncoder().encode('leaf-web:' + id);
+            var enc = new TextEncoder().encode('axquen-web:' + id);
             return crypto.subtle.digest('SHA-256', enc).then(function (buf) {
                 var bytes = new Uint8Array(buf), hex = '';
                 for (var i = 0; i < bytes.length; i++) hex += bytes[i].toString(16).padStart(2, '0');
@@ -701,7 +701,7 @@
                         '</svg>' +
                     '</div>' +
                     '<h3 style="margin:0 0 0.5rem;font-size:1.2rem;font-weight:600;letter-spacing:-0.3px;">Link Launcher Account</h3>' +
-                    '<p style="color:var(--text2,#a6b0aa);font-size:0.875rem;line-height:1.6;margin:0 0 1.25rem;">Open the Leaf Client launcher, go to the <strong style="color:#f1f3f0;">Accounts</strong> tab, click <strong style="color:#f1f3f0;">"Link Website"</strong> and enter this code:</p>' +
+                    '<p style="color:var(--text2,#a6b0aa);font-size:0.875rem;line-height:1.6;margin:0 0 1.25rem;">Open the Axquen Client launcher, go to the <strong style="color:#f1f3f0;">Accounts</strong> tab, click <strong style="color:#f1f3f0;">"Link Website"</strong> and enter this code:</p>' +
                     '<div style="background:rgba(162,240,123,0.04);border:1px dashed rgba(162,240,123,0.3);border-radius:12px;padding:1rem;margin-bottom:0.75rem;">' +
                         '<div id="weblink-code" style="font-size:2rem;font-weight:650;letter-spacing:0.3em;font-family:inherit;color:#a2f07b;">------</div>' +
                     '</div>' +
