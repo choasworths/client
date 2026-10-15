@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>(function(){var n=navigator,r=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches),l=r||(typeof n.deviceMemory==='number'&&n.deviceMemory<=4)||(typeof n.hardwareConcurrency==='number'&&n.hardwareConcurrency<=4)||!!(n.connection&&n.connection.saveData);window.lcLiteMode=l;if(l){document.documentElement.classList.add('lite');}})();</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://api.leafclient.com; object-src 'none'; base-uri 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="robots" content="noindex, follow">
+    <title>Leaf Client Status</title>
+    <link rel="canonical" href="https://leafclient.com/status">
+    <link rel="alternate" type="application/rss+xml" title="Leaf Client Status" href="/status/feed.xml">
+    <link rel="icon" href="../assets/favicon.png">
+    <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/sora-latin.woff2" crossorigin>
+    <link rel="stylesheet" href="../style.css">
+    <meta name="theme-color" content="#080b0c">
+    <meta name="description" content="Real-time status of LeafClient services. API, website, and CDN uptime, latency, and incidents.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://leafclient.com/status">
+    <meta property="og:title" content="Leaf Client, Status">
+    <meta property="og:description" content="Real-time uptime and incident history for Leaf Client services.">
+    <meta property="og:image" content="https://leafclient.com/assets/logo.png">
+</head>
+<body>
+    <div class="ambient-glow is-quiet" aria-hidden="true"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="header">
+        <nav class="nav container" aria-label="Main navigation">
+            <a href="/" class="brand" aria-label="Leaf Client home">
+                <img src="../assets/logo.webp" width="34" height="34" alt="">
+                <span>Leaf <span class="brand-light">Client</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="/#features">Features</a>
+                <a href="/docs">Docs</a>
+                <a href="/leaderboard">Leaderboard</a>
+                <a href="/status" aria-current="page">Status</a>
+            </div>
+            <div class="nav-actions">
+                <div class="account" id="nav-account">
+                    <button type="button" class="account-login hidden" id="nav-login-btn"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 17 5-5-5-5"/><path d="M15 12H3"/><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/></svg>Log in</button>
+                    <div class="account-menu hidden" id="nav-player-wrap">
+                        <button type="button" class="account-trigger" id="nav-player-btn" aria-expanded="false" aria-controls="nav-dropdown" aria-label="Account menu">
+                            <img class="account-head" id="nav-player-head" alt="" width="28" height="28">
+                            <span class="account-name" id="nav-player-name"></span>
+                            <svg class="account-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="account-dropdown" id="nav-dropdown">
+                            <div class="account-summary">
+                                <img id="nav-dropdown-head" alt="" width="36" height="36">
+                                <div><strong id="nav-dropdown-name"></strong><span>Signed in</span></div>
+                            </div>
+                            <div class="account-points" id="nav-lp-display">
+                                <img class="lb-leaf-ic" src="../assets/leaf_points.svg" alt="">
+                                <span><strong id="nav-lp-count">0</strong> Leaf Points</span>
+                            </div>
+                            <div class="account-divider"></div>
+                            <button type="button" class="account-item danger" id="nav-logout-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>Sign out</button>
+                        </div>
+                    </div>
+                </div>
+                <a class="nav-store" href="/store" aria-label="Store"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0"/><path d="M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></svg></a>
+                <a class="button button-primary button-small" href="/download">Download <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg></a>
+                <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="icon-open" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+                    <svg class="icon-close" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+        </nav>
+        <div class="mobile-menu" id="mobile-menu" hidden>
+            <a href="/download">Download</a>
+            <a href="/#features">Features</a>
+            <a href="/docs">Docs</a>
+            <a href="/leaderboard">Leaderboard</a>
+            <a href="/status" aria-current="page">Status</a>
+            <a href="/store">Store</a>
+            <a href="https://discord.gg/wvYqKpUNdb" target="_blank" rel="noopener">Discord <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-hero container">
+            <span class="section-eyebrow">Service status</span>
+            <h1>Leaf Client<br><span>status.</span></h1>
+            <p class="lead">Checked every 15 minutes from outside our own servers. Uptime, response times and past incidents for the API, the website and the mod CDN.</p>
+        </section>
+
+        <div class="st-wrap container">
+            <section id="st-overall-section" class="st-overall ok" aria-live="polite">
+                <div class="ico">
+                    <svg class="i-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                    <svg class="i-degr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+                    <svg class="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                </div>
+                <div>
+                    <h2 id="st-overall-title">Loading…</h2>
+                    <p id="st-overall-sub">Fetching latest probe results.</p>
+                </div>
+                <div class="st-meta">
+                    <div id="st-updated">Checking…</div>
+                    <a href="feed.xml"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>RSS feed</a>
+                </div>
+            </section>
+
+            <section class="st-section">
+                <h2 class="st-section-title">Services</h2>
+                <div id="st-services" class="st-services">
+                    <div class="st-loading">Loading services…</div>
+                </div>
+            </section>
+
+            <section class="st-section">
+                <h2 class="st-section-title">90-day uptime</h2>
+                <div id="st-grid-wrap" class="st-grid">
+                    <div class="st-loading">Loading history…</div>
+                </div>
+            </section>
+
+            <section class="st-section">
+                <h2 class="st-section-title">Uptime windows</h2>
+                <div id="st-uptime" class="st-uptime-grid">
+                    <div class="st-loading">Loading uptime…</div>
+                </div>
+            </section>
+
+            <section class="st-section">
+                <h2 class="st-section-title">Stay informed</h2>
+                <div class="st-subscribe">
+                    <div class="st-sub-card">
+                        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>RSS / Atom feed</h3>
+                        <p>Get notified about outages and recoveries in your feed reader.</p>
+                        <a class="button button-secondary" href="feed.xml">/status/feed.xml</a>
+                    </div>
+                    <div class="st-sub-card">
+                        <h3><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>Discord announcements</h3>
+                        <p>Live updates in the announcements channel.</p>
+                        <a class="button button-secondary" href="https://discord.gg/wvYqKpUNdb" target="_blank" rel="noopener">Join Discord <svg class="arrow-end" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="st-section">
+                <h2 class="st-section-title">Recent incidents</h2>
+                <div id="st-incidents" class="st-incidents">
+                    <div class="st-loading">Loading incidents…</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer container">
+        <div class="footer-top">
+            <div class="footer-brand-col">
+                <a href="/" class="brand" aria-label="Leaf Client home">
+                    <img src="../assets/logo.webp" width="30" height="30" alt="">
+                    <span>Leaf <span class="brand-light">Client</span></span>
+                </a>
+                <p>A free Minecraft launcher and client.</p>
+                <div class="footer-social">
+                    <a href="https://discord.gg/wvYqKpUNdb" target="_blank" rel="noopener" aria-label="Discord"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <strong>Explore</strong>
+                    <a href="/#features">Features</a>
+                    <a href="/download">Download</a>
+                    <a href="/store">Store</a>
+                    <a href="/leaderboard">Leaderboard</a>
+                </div>
+                <div>
+                    <strong>Resources</strong>
+                    <a href="/docs">Documentation</a>
+                    <a href="/status">Service status</a>
+                    <a href="/partnerships">Partnerships</a>
+                    <a href="https://discord.gg/wvYqKpUNdb" target="_blank" rel="noopener">Discord</a>
+                </div>
+                <div>
+                    <strong>Leaf Client</strong>
+                    <a href="/privacy">Privacy policy</a>
+                    <a href="/terms">Terms of service</a>
+                    <a href="/contact">Contact</a>
+                    <a href="/store?auth=1">My account</a>
+                </div>
+                <div>
+                    <strong>Credits</strong>
+                    <a href="https://starlightskins.lunareclipse.studio" target="_blank" rel="noopener">StarlightSkins</a>
+                    <a href="https://vzge.me/" target="_blank" rel="noopener">Visage</a>
+                    <a href="https://modrinth.com" target="_blank" rel="noopener">Modrinth</a>
+                    <a href="https://github.com/CmlLib" target="_blank" rel="noopener">CmlLib</a>
+                    <a href="https://api.mcstatus.io" target="_blank" rel="noopener">McStatusIO</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 ATLAS STUDIOS LLC.</span>
+            <span>Not affiliated with Mojang, Microsoft, or Minecraft. All third-party names and trademarks belong to their owners. Check server rules before using features like Spectate or Minimap.</span>
+            <a href="#main">Back to top <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></a>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var bust = '?_=' + Date.now();
+
+            function fetchJson(path) {
+                return fetch(path + bust, { cache: 'no-store' })
+                    .then(function (r) { if (!r.ok) throw new Error(path + ': ' + r.status); return r.json(); });
+            }
+
+            function fmtRelative(iso) {
+                if (!iso) return 'unknown';
+                var d = new Date(iso);
+                if (isNaN(d.getTime())) return 'unknown';
+                var diffSec = Math.max(0, Math.floor((Date.now() - d.getTime()) / 1000));
+                if (diffSec < 60) return diffSec + 's ago';
+                if (diffSec < 3600) return Math.floor(diffSec / 60) + 'm ago';
+                if (diffSec < 86400) return Math.floor(diffSec / 3600) + 'h ago';
+                return Math.floor(diffSec / 86400) + 'd ago';
+            }
+
+            function fmtAbs(iso) {
+                if (!iso) return '';
+                var d = new Date(iso);
+                if (isNaN(d.getTime())) return '';
+                return d.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
+            }
+
+            function pillClass(ok, ms, degMs) {
+                if (!ok) return 'down';
+                if (ms && degMs && ms > degMs) return 'degr';
+                return 'ok';
+            }
+
+            function renderOverall(summary) {
+                var section = document.getElementById('st-overall-section');
+                var title = document.getElementById('st-overall-title');
+                var sub = document.getElementById('st-overall-sub');
+                var updated = document.getElementById('st-updated');
+
+                var current = summary.current || {};
+                var ids = Object.keys(current);
+                var down = ids.filter(function (id) { return !current[id].ok; });
+                var degraded = ids.filter(function (id) { return current[id].ok && current[id].ms > 2000; });
+
+                section.classList.remove('ok', 'degr', 'down');
+                if (down.length === 0 && degraded.length === 0) {
+                    section.classList.add('ok');
+                    title.textContent = 'All systems operational';
+                    sub.textContent = 'Every Leaf Client service is responding normally.';
+                } else if (down.length > 0) {
+                    section.classList.add('down');
+                    var names = down.map(function (id) {
+                        var svc = (summary.services || []).find(function (s) { return s.id === id; });
+                        return svc ? svc.name : id;
+                    }).join(', ');
+                    title.textContent = (down.length === ids.length ? 'Major outage' : 'Partial outage') + ', ' + names;
+                    sub.textContent = 'We know about it and are looking into it. Updates will show up below.';
+                } else {
+                    section.classList.add('degr');
+                    title.textContent = 'Degraded performance';
+                    sub.textContent = 'Some services are responding slower than usual.';
+                }
+
+                updated.textContent = 'Updated ' + fmtRelative(summary.updated_at);
+                updated.title = fmtAbs(summary.updated_at);
+            }
+
+            function renderServices(summary) {
+                var host = document.getElementById('st-services');
+                host.innerHTML = '';
+                var services = summary.services || [];
+                if (services.length === 0) {
+                    host.innerHTML = '<div class="st-loading">No services configured yet.</div>';
+                    return;
+                }
+                services.forEach(function (svc) {
+                    var c = (summary.current || {})[svc.id] || { ok: false, ms: 0 };
+                    var u = ((summary.uptime || {})[svc.id] || {})['24h'] || { pct: 0, samples: 0 };
+                    var pc = pillClass(c.ok, c.ms, 2000);
+                    var pillText = c.ok ? (pc === 'degr' ? 'Slow' : 'Operational') : 'Down';
+                    var card = document.createElement('div');
+                    card.className = 'st-svc';
+                    var nameEl = document.createElement('div'); nameEl.className = 'st-svc-name'; nameEl.textContent = svc.name;
+                    var pillEl = document.createElement('span'); pillEl.className = 'st-pill ' + pc; pillEl.textContent = pillText;
+                    var rowEl = document.createElement('div'); rowEl.className = 'st-svc-row'; rowEl.appendChild(nameEl); rowEl.appendChild(pillEl);
+                    var descEl = document.createElement('p'); descEl.className = 'st-svc-desc'; descEl.textContent = svc.description || '';
+                    var statsEl = document.createElement('div'); statsEl.className = 'st-svc-stats';
+                    var s1 = document.createElement('span'); s1.innerHTML = 'Latency '; var b1 = document.createElement('strong'); b1.textContent = (c.ms || 0) + ' ms'; s1.appendChild(b1);
+                    var s2 = document.createElement('span'); s2.innerHTML = '24h '; var b2 = document.createElement('strong'); b2.textContent = (u.pct || 0).toFixed(2) + '%'; s2.appendChild(b2);
+                    statsEl.appendChild(s1); statsEl.appendChild(s2);
+                    card.appendChild(rowEl); card.appendChild(descEl); card.appendChild(statsEl);
+                    host.appendChild(card);
+                });
+            }
+
+            var barInfo = new WeakMap();
+            var tip = null;
+            var tipBar = null;
+
+            function dayStatus(entry) {
+                if (!entry) return { cls: 'none', label: 'No data' };
+                if (entry.uptime >= 99.5) return { cls: 'ok', label: 'Operational' };
+                if (entry.uptime >= 95) return { cls: 'degr', label: 'Degraded' };
+                return { cls: 'down', label: 'Outage' };
+            }
+
+            function fmtDay(key) {
+                var d = new Date(key + 'T00:00:00Z');
+                return d.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+            }
+
+            function fmtUtcTime(iso) {
+                return new Date(iso).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' });
+            }
+
+            function fmtPct(v) {
+                return (v >= 100 ? '100' : v.toFixed(2)) + '%';
+            }
+
+            function incidentsOn(incidents, svcId, key) {
+                var start = Date.parse(key + 'T00:00:00Z');
+                var end = start + 86400000;
+                return incidents.filter(function (inc) {
+                    if (inc.service_id !== svcId || !inc.started_at) return false;
+                    var s = Date.parse(inc.started_at);
+                    var e = inc.ended_at ? Date.parse(inc.ended_at) : Date.now();
+                    return s < end && e >= start;
+                });
+            }
+
+            function tipRow(label, value) {
+                var row = document.createElement('div');
+                var dt = document.createElement('dt'); dt.textContent = label;
+                var dd = document.createElement('dd'); dd.textContent = value;
+                row.appendChild(dt); row.appendChild(dd);
+                return row;
+            }
+
+            function fillTip(info) {
+                tip.textContent = '';
+                var st = dayStatus(info.entry);
+                var head = document.createElement('div'); head.className = 'st-tip-head';
+                var date = document.createElement('strong'); date.textContent = fmtDay(info.key);
+                var pill = document.createElement('span'); pill.className = 'st-pill ' + st.cls; pill.textContent = st.label;
+                head.appendChild(date); head.appendChild(pill);
+                var svc = document.createElement('div'); svc.className = 'st-tip-svc';
+                svc.textContent = info.service + (info.isToday ? ', day in progress' : '');
+                tip.appendChild(head); tip.appendChild(svc);
+                if (!info.entry) {
+                    var none = document.createElement('p'); none.className = 'st-tip-note';
+                    none.textContent = 'No checks were recorded for this day.';
+                    tip.appendChild(none);
+                    return;
+                }
+                var samples = info.entry.samples || 0;
+                var failed = Math.round(samples * (100 - info.entry.uptime) / 100);
+                var dl = document.createElement('dl'); dl.className = 'st-tip-stats';
+                dl.appendChild(tipRow('Uptime', fmtPct(info.entry.uptime)));
+                dl.appendChild(tipRow('Checks', samples.toLocaleString()));
+                dl.appendChild(tipRow('Failed checks', failed.toLocaleString()));
+                tip.appendChild(dl);
+                if (info.incidents.length) {
+                    var list = document.createElement('ul'); list.className = 'st-tip-incidents';
+                    info.incidents.slice(0, 3).forEach(function (inc) {
+                        var li = document.createElement('li');
+                        var t = document.createElement('span'); t.textContent = inc.ended_at ? 'Outage, ' + (inc.duration_minutes || 0) + ' min' : 'Ongoing outage';
+                        var w = document.createElement('small');
+                        w.textContent = inc.ended_at ? fmtUtcTime(inc.started_at) + ' to ' + fmtUtcTime(inc.ended_at) + ' UTC' : 'Since ' + fmtUtcTime(inc.started_at) + ' UTC';
+                        li.appendChild(t); li.appendChild(w);
+                        list.appendChild(li);
+                    });
+                    tip.appendChild(list);
+                }
+            }
+
+            function placeTip(bar) {
+                var r = bar.getBoundingClientRect();
+                var w = tip.offsetWidth;
+                var h = tip.offsetHeight;
+                var left = Math.max(8, Math.min(window.innerWidth - w - 8, r.left + r.width / 2 - w / 2));
+                var top = r.top - h - 10;
+                var below = top < 8;
+                if (below) top = r.bottom + 10;
+                tip.classList.toggle('below', below);
+                tip.style.left = Math.round(left) + 'px';
+                tip.style.top = Math.round(top) + 'px';
+                tip.style.setProperty('--arrow-x', Math.round(r.left + r.width / 2 - left) + 'px');
+            }
+
+            var hideTimer = null;
+
+            function showTip(bar) {
+                var info = barInfo.get(bar);
+                if (!info) return;
+                clearTimeout(hideTimer);
+                if (tipBar === bar && !tip.hidden) return;
+                if (tipBar) tipBar.classList.remove('is-active');
+                tipBar = bar;
+                bar.classList.add('is-active');
+                fillTip(info);
+                tip.hidden = false;
+                placeTip(bar);
+            }
+
+            function hideTip() {
+                clearTimeout(hideTimer);
+                if (!tip || tip.hidden) return;
+                tip.hidden = true;
+                if (tipBar) tipBar.classList.remove('is-active');
+                tipBar = null;
+            }
+
+            function initTip() {
+                tip = document.createElement('div');
+                tip.className = 'st-tip';
+                tip.id = 'st-tip';
+                tip.setAttribute('role', 'tooltip');
+                tip.hidden = true;
+                document.body.appendChild(tip);
+                var grid = document.getElementById('st-grid-wrap');
+                grid.addEventListener('pointerover', function (e) {
+                    var bar = e.target.closest('.st-bar');
+                    if (bar && e.pointerType !== 'touch') showTip(bar);
+                });
+                grid.addEventListener('pointerout', function (e) {
+                    if (e.pointerType === 'touch') return;
+                    var to = e.relatedTarget && e.relatedTarget.closest ? e.relatedTarget.closest('.st-bar') : null;
+                    if (to) return;
+                    clearTimeout(hideTimer);
+                    hideTimer = setTimeout(hideTip, 180);
+                });
+                var lastPointer = 'mouse';
+                grid.addEventListener('pointerdown', function (e) { lastPointer = e.pointerType; });
+                grid.addEventListener('click', function (e) {
+                    var bar = e.target.closest('.st-bar');
+                    if (!bar || lastPointer === 'mouse') return;
+                    if (tipBar === bar) hideTip();
+                    else showTip(bar);
+                });
+                document.addEventListener('click', function (e) {
+                    if (!e.target.closest('#st-grid-wrap')) hideTip();
+                });
+                document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hideTip(); });
+                window.addEventListener('scroll', hideTip, { passive: true });
+                grid.addEventListener('scroll', hideTip, { passive: true });
+                window.addEventListener('resize', hideTip);
+            }
+
+            function renderGrid(summary, incidents) {
+                var host = document.getElementById('st-grid-wrap');
+                hideTip();
+                host.innerHTML = '';
+                var incidentList = (incidents && incidents.incidents) || [];
+                var services = summary.services || [];
+                if (services.length === 0) {
+                    host.innerHTML = '<div class="st-loading">No history yet. The grid fills in as probes come in.</div>';
+                    return;
+                }
+                services.forEach(function (svc) {
+                    var rows = ((summary.daily || {})[svc.id] || []).slice(0, 90);
+                    var byDate = {};
+                    rows.forEach(function (r) { byDate[r.date] = r; });
+
+                    var totalSamples = 0;
+                    var weighted = 0;
+                    var today = new Date();
+
+                    var rowEl = document.createElement('div'); rowEl.className = 'st-grid-row';
+                    var nameEl = document.createElement('div'); nameEl.className = 'st-grid-svc'; nameEl.textContent = svc.name;
+                    var barsEl = document.createElement('div'); barsEl.className = 'st-grid-bars';
+
+                    for (var i = 89; i >= 0; i--) {
+                        var d = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate() - i));
+                        var key = d.toISOString().slice(0, 10);
+                        var entry = byDate[key];
+                        var bar = document.createElement('div');
+                        bar.className = 'st-bar';
+                        if (entry) {
+                            if (entry.uptime >= 99.5) bar.classList.add('b-ok');
+                            else if (entry.uptime >= 95) bar.classList.add('b-deg');
+                            else bar.classList.add('b-bad');
+                            totalSamples += entry.samples;
+                            weighted += entry.uptime * entry.samples;
+                        }
+                        barInfo.set(bar, { key: key, isToday: i === 0, service: svc.name, entry: entry || null, incidents: incidentsOn(incidentList, svc.id, key) });
+                        barsEl.appendChild(bar);
+                    }
+
+                    var pct90 = totalSamples > 0 ? (weighted / totalSamples) : 100;
+                    var pctEl = document.createElement('div'); pctEl.className = 'st-grid-pct'; pctEl.textContent = pct90.toFixed(2) + '%';
+                    rowEl.appendChild(nameEl); rowEl.appendChild(barsEl); rowEl.appendChild(pctEl);
+                    host.appendChild(rowEl);
+                });
+
+                var legend = document.createElement('div');
+                legend.className = 'st-grid-legend';
+                legend.innerHTML =
+                    '<span><i style="background:var(--green)"></i> &ge; 99.5%</span>' +
+                    '<span><i style="background:var(--warn)"></i> 95 to 99.5%</span>' +
+                    '<span><i style="background:var(--danger)"></i> &lt; 95%</span>' +
+                    '<span><i style="background:rgba(132,141,130,0.22)"></i> No data</span>';
+                host.appendChild(legend);
+            }
+
+            function renderUptimeWindows(summary) {
+                var host = document.getElementById('st-uptime');
+                host.innerHTML = '';
+                var services = summary.services || [];
+                if (services.length === 0) { host.innerHTML = '<div class="st-loading">Awaiting first probe.</div>'; return; }
+                services.forEach(function (svc) {
+                    var u = (summary.uptime || {})[svc.id] || {};
+                    var card = document.createElement('div'); card.className = 'st-uptime-card';
+                    var name = document.createElement('div'); name.className = 'st-uptime-name'; name.textContent = svc.name;
+                    var win = document.createElement('div'); win.className = 'st-uptime-windows';
+                    ['24h','7d','30d','90d'].forEach(function (k) {
+                        var v = u[k] || { pct: 0 };
+                        var cell = document.createElement('div'); cell.className = 'st-uptime-cell';
+                        var lab = document.createElement('div'); lab.className = 'label'; lab.textContent = k;
+                        var val = document.createElement('div'); val.className = 'val'; val.textContent = (v.pct || 0).toFixed(2) + '%';
+                        cell.appendChild(lab); cell.appendChild(val);
+                        win.appendChild(cell);
+                    });
+                    card.appendChild(name); card.appendChild(win);
+                    host.appendChild(card);
+                });
+            }
+
+            function renderIncidents(payload) {
+                var host = document.getElementById('st-incidents');
+                host.innerHTML = '';
+                var incidents = (payload && payload.incidents) || [];
+                if (incidents.length === 0) {
+                    host.innerHTML = '<div class="st-inc-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><div>No incidents on record.</div></div>';
+                    return;
+                }
+                incidents.slice(0, 25).forEach(function (inc) {
+                    var ongoing = !inc.ended_at;
+                    var when = ongoing
+                        ? 'Started ' + fmtRelative(inc.started_at)
+                        : fmtRelative(inc.ended_at) + ' · ' + (inc.duration_minutes || 0) + ' min';
+                    var meta = (inc.service_name || '') + (inc.notes ? ', ' + inc.notes : '');
+                    var div = document.createElement('div'); div.className = 'st-inc';
+                    var head = document.createElement('div'); head.className = 'st-inc-head';
+                    var t = document.createElement('div'); t.className = 'st-inc-title'; t.textContent = inc.title || 'Incident';
+                    var pill = document.createElement('span'); pill.className = 'st-pill ' + (ongoing ? 'down' : 'ok'); pill.textContent = ongoing ? 'Investigating' : 'Resolved';
+                    var w = document.createElement('div'); w.className = 'st-inc-when'; w.title = fmtAbs(inc.started_at); w.textContent = when;
+                    head.appendChild(t); head.appendChild(pill); head.appendChild(w);
+                    var m = document.createElement('div'); m.className = 'st-inc-meta'; m.textContent = meta;
+                    div.appendChild(head); div.appendChild(m);
+                    host.appendChild(div);
+                });
+            }
+
+            function showError(msg) {
+                ['st-services', 'st-grid-wrap', 'st-uptime', 'st-incidents'].forEach(function (id) {
+                    var el = document.getElementById(id);
+                    if (el) { el.innerHTML = ''; var d = document.createElement('div'); d.className = 'st-error'; d.textContent = msg; el.appendChild(d); }
+                });
+                document.getElementById('st-overall-title').textContent = 'Status data unavailable';
+                document.getElementById('st-overall-sub').textContent = 'Could not load the status data. Try refreshing in a minute.';
+            }
+
+            function loadAll() {
+                bust = '?_=' + Date.now();
+                return Promise.all([
+                    fetchJson('summary.json'),
+                    fetchJson('incidents.json')
+                ]).then(function (results) {
+                    var summary = results[0];
+                    var incidents = results[1];
+                    if (!summary.services || summary.services.length === 0) {
+                        document.getElementById('st-overall-title').textContent = 'Awaiting first probe';
+                        document.getElementById('st-overall-sub').textContent = 'The status workflow runs every 15 minutes and fills this page on the next run.';
+                        document.getElementById('st-services').innerHTML = '<div class="st-loading">First probe pending…</div>';
+                        document.getElementById('st-grid-wrap').innerHTML = '<div class="st-loading">No history yet.</div>';
+                        document.getElementById('st-uptime').innerHTML = '<div class="st-loading">No data yet.</div>';
+                        renderIncidents(incidents);
+                        return;
+                    }
+                    renderOverall(summary);
+                    renderServices(summary);
+                    renderGrid(summary, incidents);
+                    renderUptimeWindows(summary);
+                    renderIncidents(incidents);
+                }).catch(function (err) {
+                    console.error(err);
+                    showError('Failed to load status data: ' + err.message);
+                });
+            }
+
+            initTip();
+            loadAll();
+            setInterval(loadAll, 60000);
+            document.addEventListener('visibilitychange', function () {
+                if (!document.hidden) loadAll();
+            });
+        })();
+    </script>
+    <script defer src="../script.js"></script>
+    <script src="../account.js" defer></script>
+</body>
+</html>

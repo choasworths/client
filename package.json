@@ -1,0 +1,13 @@
+{
+  "name": "leafclient-clone",
+  "version": "1.0.0",
+  "description": "Exact clone of Leaf Client website (leafclient.com)",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
+  },
+  "keywords": ["leafclient", "minecraft", "clone"],
+  "author": "",
+  "license": "MIT"
+}

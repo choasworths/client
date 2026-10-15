@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>(function(){var n=navigator,r=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches),l=r||(typeof n.deviceMemory==='number'&&n.deviceMemory<=4)||(typeof n.hardwareConcurrency==='number'&&n.hardwareConcurrency<=4)||!!(n.connection&&n.connection.saveData);window.lcLiteMode=l;if(l){document.documentElement.classList.add('lite');}})();</script>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; connect-src 'self' https://api.leafclient.com https://cdn.leafclient.com https://flagcdn.com https://starlightskins.lunareclipse.studio; frame-src 'self' https://*.tebex.io https://stats.uptimerobot.com; form-action 'self' https://*.tebex.io; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(self 'https://*.tebex.io'), interest-cohort=(), browsing-topics=()">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Leaf Client terms of service, eligibility, acceptable use, cosmetics purchases, intellectual property, and liability.">
+    <title>Leaf Client Terms of Service</title>
+    <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/sora-latin.woff2" crossorigin>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <meta name="theme-color" content="#080b0c">
+</head>
+<body>
+    <div class="ambient-glow is-quiet" aria-hidden="true"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="header">
+        <nav class="nav container" aria-label="Main navigation">
+            <a href="/" class="brand" aria-label="Leaf Client home">
+                <img src="../assets/logo.webp" width="34" height="34" alt="">
+                <span>Leaf <span class="brand-light">Client</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="/#features">Features</a>
+                <a href="/docs">Docs</a>
+                <a href="/leaderboard">Leaderboard</a>
+                <a href="/status">Status</a>
+            </div>
+            <div class="nav-actions">
+                <div class="account" id="nav-account">
+                    <button type="button" class="account-login hidden" id="nav-login-btn"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 17 5-5-5-5"/><path d="M15 12H3"/><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/></svg>Log in</button>
+                    <div class="account-menu hidden" id="nav-player-wrap">
+                        <button type="button" class="account-trigger" id="nav-player-btn" aria-expanded="false" aria-controls="nav-dropdown" aria-label="Account menu">
+                            <img class="account-head" id="nav-player-head" alt="" width="28" height="28">
+                            <span class="account-name" id="nav-player-name"></span>
+                            <svg class="account-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="account-dropdown" id="nav-dropdown">
+                            <div class="account-summary">
+                                <img id="nav-dropdown-head" alt="" width="36" height="36">
+                                <div><strong id="nav-dropdown-name"></strong><span>Signed in</span></div>
+                            </div>
+                            <div class="account-points" id="nav-lp-display">
+                                <img class="lb-leaf-ic" src="../assets/leaf_points.svg" alt="">
+                                <span><strong id="nav-lp-count">0</strong> Leaf Points</span>
+                            </div>
+                            <div class="account-divider"></div>
+                            <button type="button" class="account-item danger" id="nav-logout-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>Sign out</button>
+                        </div>
+                    </div>
+                </div>
+                <a class="nav-store" href="/store" aria-label="Store"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0"/><path d="M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></svg></a>
+                <a class="button button-primary button-small" href="/download">Download <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg></a>
+                <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="icon-open" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+                    <svg class="icon-close" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+        </nav>
+        <div class="mobile-menu" id="mobile-menu" hidden>
+            <a href="/download">Download</a>
+            <a href="/#features">Features</a>
+            <a href="/docs">Docs</a>
+            <a href="/leaderboard">Leaderboard</a>
+            <a href="/status">Status</a>
+            <a href="/store">Store</a>
+            <a href="https://discord.gg/wvYqKpUNdb" target="_blank" rel="noopener">Discord <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-hero container">
+            <span class="section-eyebrow">Legal</span>
+            <h1>Terms of Service</h1>
+            <p class="page-meta">Last updated: July 26, 2026</p>
+        </section>
+
+        <section class="container page-section">
+            <div class="prose">
+                <h2>1. Acceptance of Terms</h2>
+                <p>These Terms of Service ("Terms") form a binding agreement between you and ATLAS STUDIOS LLC, an Illinois limited liability company ("Leaf Client," "we," "us," or "our"). They govern your use of the leafclient.com website, the Leaf Client software (including the installer, launcher, updater, and client mod), the cosmetics store, our backend API, and any related services (collectively, the "Service").</p>
+                <p>By using the Service in any way, you confirm that you have read these Terms, understand them, and agree to be bound by them. If you do not agree, do not use the Service.</p>
+
+                <h2>2. Description of Service</h2>
+                <p>Leaf Client is a Minecraft client and launcher. The Service includes all software we distribute (installer, launcher, updater, client mod), the website and cosmetics store at leafclient.com, and the backend API. All components are subject to these Terms.</p>
+                <p>You must not repackage, redistribute, or reverse-engineer any part of the Service, including by spoofing update sources or bypassing integrity checks.</p>
+                <p>Minecraft is not provided by Leaf Client. You must own a valid Minecraft: Java Edition account for online play. Your use of Minecraft is governed by Mojang Studios' own agreements. Leaf Client does not modify Mojang's files; it loads alongside Minecraft through supported mod loaders.</p>
+
+                <h2>3. Eligibility and User Accounts</h2>
+                <p>You must be at least 13 years old (or 16 in the European Economic Area and the United Kingdom) to use the Service. If you are under the age of majority in your jurisdiction you must have the permission of a parent or legal guardian.</p>
+                <p>When you create an account you agree to provide accurate information, to keep your credentials secure, and to notify us immediately if you suspect unauthorised use. You are responsible for all activity that occurs under your account. We may refuse, suspend, or terminate an account that violates these Terms, threatens the security of other users, or is used in connection with fraud.</p>
+                <p>Creating a password-based account requires a valid email address that you control, and you must verify it before you can sign in; accounts created by signing in with Microsoft are verified through Microsoft. We limit how many accounts may be created from the same device or network to prevent abuse. Accounts are personal to you; creating them in bulk, in an automated way, or to circumvent these limits is not permitted.</p>
+                <p>You may close your account at any time by emailing <a href="/cdn-cgi/l/email-protection#b6c5c3c6c6d9c4c2f6dad3d7d0d5dadfd3d8c298d5d9db"><span class="__cf_email__" data-cfemail="0675737676697472466a636760656a6f6368722865696b">[email&#160;protected]</span></a>. Closing your account does not automatically refund past purchases.</p>
+
+                <h2>4. Acceptable Use</h2>
+                <p>Leaf Client is designed for legitimate Minecraft play and cosmetic customisation. When you use the Service you agree not to:</p>
+                <ul>
+                    <li>Use or modify Leaf Client to bypass, disable, or interfere with the anti-cheat systems of any Minecraft server that prohibits client modifications. Respect the rules of every server you join.</li>
+                    <li>Use Leaf Client to cheat, grief, or otherwise disrupt the experience of other players in contravention of a server's terms.</li>
+                    <li>Reverse engineer, decompile, or disassemble the launcher, the client mod, the API, or the cosmetics delivery system, except to the extent that applicable law expressly permits such activity.</li>
+                    <li>Create accounts in bulk, run bots or scripts against our API, or attempt credential-stuffing, scraping, or denial-of-service attacks against any Leaf Client infrastructure.</li>
+                    <li>Sell, rent, trade, or transfer a Leaf Client account or any cosmetic entitlement to another person. Entitlements are personal.</li>
+                    <li>Upload, transmit, or promote content that is illegal, infringing, malicious, harassing, or sexually explicit, or that targets minors.</li>
+                    <li>Use the Service in violation of the Minecraft End User Licence Agreement or of any applicable export, sanctions, or anti-money-laundering law.</li>
+                </ul>
+                <p>We reserve the right to investigate suspected violations, to revoke entitlements, and to terminate accounts that breach this section.</p>
+
+                <h2>5. Cosmetics and Other Purchases</h2>
+
+                <h3>5.1 Nature of cosmetics</h3>
+                <p>Cosmetics sold through the Leaf Client store are digital, non-tangible items that render inside the Leaf Client mod. They have no monetary value outside the Service, cannot be redeemed for cash, and are licensed, not sold, to you for personal, non-commercial use with your Leaf Client account.</p>
+
+                <h3>5.2 Payments</h3>
+                <p>Payments are processed by third-party payment providers. You are responsible for any currency conversion fees or taxes that your bank or card issuer applies. Prices shown on the store include applicable VAT where required by law; otherwise taxes are shown at checkout or on the receipt.</p>
+
+                <h3>5.3 Refunds</h3>
+                <p>Because cosmetics are delivered to your account immediately and are non-returnable digital goods, all sales are final except where a refund is required by law (for example, the statutory right of withdrawal under EU consumer law, where that right has not been validly waived on purchase). If you believe you were charged in error, duplicate charges, fraudulent transactions, undelivered items, contact <a href="/cdn-cgi/l/email-protection#097a7c7979667b7d49656c686f6a65606c677d276a6664"><span class="__cf_email__" data-cfemail="0b787e7b7b64797f4b676e6a6d6867626e657f25686466">[email&#160;protected]</span></a> within thirty days of the charge and we will investigate in good faith.</p>
+
+                <h3>5.4 Revocation</h3>
+                <p>We may revoke an entitlement, without refund, if the associated account is terminated for breach of these Terms, if the original payment is reversed or charged back, or if we remove a cosmetic from the catalogue for legal reasons (for example, a rights-holder complaint). In the last case we will make a reasonable effort to offer an equivalent replacement.</p>
+
+                <h2>6. Intellectual Property</h2>
+                <p>The Leaf Client name, logo, website design, launcher, client mod, and backend are owned by ATLAS STUDIOS LLC and protected by copyright, trademark, and other laws. Nothing in these Terms transfers ownership to you.</p>
+                <p>Minecraft, the Minecraft logo, and related assets are the property of Mojang Studios and Microsoft. Leaf Client is not affiliated with Mojang or Microsoft; it is an independent project that interoperates with Minecraft as permitted by Mojang's brand and asset guidelines.</p>
+                <p>You retain all rights to the content you create while using the Service, screenshots, videos, configuration files, and custom skins. You grant Leaf Client a non-exclusive, worldwide, royalty-free licence to host, display, and distribute any content you voluntarily submit to public areas of the Service (such as showcase posts or support tickets) strictly for the purpose of operating and promoting the Service.</p>
+
+                <h2>7. Installation and Auto-Update</h2>
+                <p>By installing Leaf Client you authorise the software to write files to your device, create shortcuts, and register with your operating system. The installer downloads packages over HTTPS and verifies their integrity before executing them. It does not install drivers, system services, browser extensions, or bundled third-party software.</p>
+                <p>By running the launcher you authorise it to check for and install updates automatically. Updates only modify files within Leaf Client's own folders; they never touch your Minecraft worlds, saves, or configuration. You may opt out of auto-updates in settings, but doing so may cause some features to stop working until you update manually.</p>
+                <p>You agree not to tamper with or bypass the integrity checks performed by the installer or updater. Modified or repackaged builds are not supported and must not identify themselves as official Leaf Client builds.</p>
+
+                <h2>8. Third-Party Services</h2>
+                <p>The Service interoperates with third-party services for authentication, payments, analytics, and other functions. Your use of those services is governed by their own terms. We are not responsible for the availability, content, or practices of any third-party service.</p>
+
+                <h2>9. Disclaimers</h2>
+                <div class="legal-callout">
+                    <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR UNINTERRUPTED OPERATION. WE DO NOT WARRANT THAT THE SERVICE WILL BE ERROR-FREE, THAT DEFECTS WILL BE CORRECTED, OR THAT THE SERVICE WILL BE COMPATIBLE WITH EVERY MINECRAFT SERVER OR HARDWARE CONFIGURATION.</p>
+                </div>
+                <p>Some Minecraft servers actively detect and ban client modifications. Using Leaf Client on such a server may result in a ban of your Minecraft account. You use Leaf Client on multiplayer servers at your own risk. Running the mod modifies your Minecraft installation; while we take care to avoid damaging worlds, saves, or configuration files, you are responsible for backing up anything you cannot afford to lose.</p>
+
+                <h2>10. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by applicable law, ATLAS STUDIOS LLC and its officers, members, employees, and agents will not be liable for any indirect, incidental, special, consequential, punitive, or exemplary damages; loss of profits, revenue, data, goodwill, or use; or failure of third-party services. Our aggregate liability for any claim arising out of or relating to the Service will not exceed the greater of (a) the amount you paid us in the twelve months preceding the claim or (b) twenty United States dollars.</p>
+                <p>Some jurisdictions do not permit the exclusion of certain warranties or the limitation of liability for certain damages. In those jurisdictions, our liability is limited to the smallest extent permitted by law.</p>
+
+                <h2>11. Indemnification</h2>
+                <p>You agree to indemnify and hold harmless ATLAS STUDIOS LLC and its officers, members, employees, and agents from any claim, liability, damage, loss, or expense (including reasonable legal fees) arising out of or related to (a) your use of the Service, (b) your violation of these Terms, (c) your violation of any third-party right, including the Minecraft EULA or the rules of a Minecraft server, or (d) any content you submit through the Service.</p>
+
+                <h2>12. Termination</h2>
+                <p>You may stop using the Service at any time. We may suspend or terminate your access, with or without notice, if you breach these Terms, if your account is implicated in fraud or abuse, or if we are required to do so by law. Sections that by their nature should survive termination, including Sections 6, 9, 10, 11, and 13, will survive.</p>
+
+                <h2>13. Governing Law and Disputes</h2>
+                <p>These Terms are governed by the laws of the State of Illinois, United States, excluding its conflict-of-laws rules. Any dispute that cannot be resolved informally will be brought before the state or federal courts located in Cook County, Illinois, and you consent to the jurisdiction of those courts, unless mandatory consumer-protection law in your country of residence requires otherwise, in which case you may bring the dispute before the courts of your residence. If any provision of these Terms is held unenforceable, the remaining provisions will continue in full force.</p>
+                <p>Nothing in these Terms is intended to override any non-waivable statutory right you have as a consumer.</p>
+
+                <h2>14. Changes to These Terms</h2>
+                <p>We may update these Terms at any time. When we do, we revise the "Last updated" date at the top of the page. Continued use of the Service after a change takes effect means you accept the revised Terms. If you do not accept them, you must stop using the Service.</p>
+
+                <h2>15. Assignment</h2>
+                <p>You may not assign or transfer your rights under these Terms. We may assign these Terms, in whole or in part, to an affiliate or to a successor in connection with a merger, acquisition, reorganisation, or sale of substantially all assets. We will post notice of any such transfer on this page.</p>
+
+                <h2>16. Contact</h2>
+                <p>Questions about these Terms can be sent to <a href="/cdn-cgi/l/email-protection#f784828787988583b79b929691949b9e929983d994989a"><span class="__cf_email__" data-cfemail="cab9bfbabaa5b8be8aa6afabaca9a6a3afa4bee4a9a5a7">[email&#160;protected]</span></a>. Legal notices and DMCA-style complaints should be sent to <a href="/cdn-cgi/l/email-protection#563a3331373a163a333730353a3f3338227835393b"><span class="__cf_email__" data-cfemail="d4b8b1b3b5b894b8b1b5b2b7b8bdb1baa0fab7bbb9">[email&#160;protected]</span></a>.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer container">
+        <div class="footer-top">
+            <div class="footer-brand-col">
+                <a href="/" class="brand" aria-label="Leaf Client home">
+                    <img src="../assets/logo.webp" width="30" height="30" alt="">
+                    <span>Leaf <span class="brand-light">Client</span></span>
+                </a>
+                <p>A free Minecraft launcher and client.</p>
+                <div class="footer-social">
+                    <a href="https://discord.gg/wvYqKpUNdb" target="_blank" rel="noopener" aria-label="Discord"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <strong>Explore</strong>
+                    <a href="/#features">Features</a>
+                    <a href="/download">Download</a>
+                    <a href="/store">Store</a>
+                    <a href="/leaderboard">Leaderboard</a>
+                </div>
+                <div>
+                    <strong>Resources</strong>
+                    <a href="/docs">Documentation</a>
+                    <a href="/status">Service status</a>
+                    <a href="/partnerships">Partnerships</a>
+                    <a href="https://discord.gg/wvYqKpUNdb" target="_blank" rel="noopener">Discord</a>
+                </div>
+                <div>
+                    <strong>Leaf Client</strong>
+                    <a href="/privacy">Privacy policy</a>
+                    <a href="/terms" aria-current="page">Terms of service</a>
+                    <a href="/contact">Contact</a>
+                    <a href="/store?auth=1">My account</a>
+                </div>
+                <div>
+                    <strong>Credits</strong>
+                    <a href="https://starlightskins.lunareclipse.studio" target="_blank" rel="noopener">StarlightSkins</a>
+                    <a href="https://vzge.me/" target="_blank" rel="noopener">Visage</a>
+                    <a href="https://modrinth.com" target="_blank" rel="noopener">Modrinth</a>
+                    <a href="https://github.com/CmlLib" target="_blank" rel="noopener">CmlLib</a>
+                    <a href="https://api.mcstatus.io" target="_blank" rel="noopener">McStatusIO</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 ATLAS STUDIOS LLC.</span>
+            <span>Not affiliated with Mojang, Microsoft, or Minecraft. All third-party names and trademarks belong to their owners. Check server rules before using features like Spectate or Minimap.</span>
+            <a href="#main">Back to top <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></a>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="../script.js"></script>
+    <script src="../account.js" defer></script>
+    <script src="../status-banner.js" defer></script>
+</body>
+</html>
